@@ -1,0 +1,126 @@
+<script type="text/x-handlebars-template" id="J_ContainerTpl">
+    <header id="top-bar"></header>
+    <section id="J_Container"></section>
+    <section id="J_ShareContainer" class="fn-hide"></section>
+</script>
+<!--首页-->
+<script type="text/x-handlebars-template" id="J_IndexTemplate">
+    <section id="weather"><img src="/fcs/m/images/weather.jpg" width="100%" height="230"></section>
+    <nav id="nav">
+        <ul class="nav-list">
+            <li id="J_AirTicketItem">
+                <span class="pic"><img src="/fcs/m/images/pic1.png"></span><span>订机票</span>
+            </li>
+            <li id="J_HotelItem">
+                <span class="pic"><img src="/fcs/m/images/pic2.png"></span><span>订酒店</span>
+            </li>
+            <li id="J_ReimburseItem">
+                <span class="pic"><img src="/fcs/m/images/pic3.png"></span><span>申请报销</span>
+            </li>
+        </ul>
+    </nav>
+    <div class="index-content">
+        <div class="index-flight-hotel">
+            <ul id="J_OrdersItem" class="index-info-list arrow-left-icon-c0ccda">
+                <li>
+                    <div class="order-record-list">
+                        <div class="record-cont">
+                            <header class="record-cont-header">
+                                <p class="record-name">出差人: 麦伟林<span>共6人</span></p>
+
+                                <p class="record-time">2013.10.08 东航MU5688</p>
+
+                                <p class="record-address">上海国金丽斯卡尔顿酒店</p>
+                            </header>
+                        </div>
+                        <figure class="f_icon"></figure>
+                    </div>
+                </li>
+                <li>
+                    <div class="order-record-list hotel-record">
+                        <div class="record-cont">
+                            <header class="record-cont-header">
+                                <p class="record-name">出差人: 麦伟<span>共5晚3间</span></p>
+
+                                <p class="record-time">2013.10.08 东航MU5688</p>
+
+                                <p class="record-address">上海国金丽斯卡尔顿酒店</p>
+                            </header>
+                        </div>
+                        <figure class="h_icon"></figure>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="index-other">
+            <ul id="J_SearchItem" class="index-other-list">
+                <li>
+                    <div class="index-other-single arrow-left-icon-c0ccda">报销未提交<span class="fn-c-18a8e6 fn48">1</span>笔
+                    </div>
+                    <figure class="n_icon"></figure>
+                </li>
+                <li>
+                    <div class="index-other-single arrow-left-icon-c0ccda">报销被退回<span class="fn-c-ff7365 fn48">3</span>笔
+                    </div>
+                    <figure class="e_icon"></figure>
+                </li>
+                <li>
+                    <div class="index-other-single arrow-left-icon-c0ccda">报销待交单<span class="fn-c-2db76c fn48">5</span>笔
+                    </div>
+                    <figure class="s_icon"></figure>
+                </li>
+            </ul>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-handlebars-template" id="J_IndexTemplate2">
+    <section id="J_Index" class="search_container">
+        <ul class="J_MenuList">
+            <li><span id="J_AirTicketItem" class='icon'>f机</span></li>
+            <li><span id="J_HotelItem" class='icon'>b酒</span></li>
+            <li><span id="J_OrdersItem" class='icon'>c订</span></li>
+            <li><span id="J_QueryIfItem" class='icon'>p查</span></li>
+            <!--测试iframe-->
+            <li><span id="J_TestIframe" class='icon'>x测</span></li>
+        </ul>
+        <ul class="J_MenuList">
+            <!--新增报销单-->
+            <li><span id="J_ReimburseItem" class='icon'>x报</span></li>
+            <!--报销单查询-->
+            <li><span id="J_SearchItem" class='icon'>e搜</span></li>
+            <li><span id="J_CloudMsgItem" class='icon'>z云</span></li>
+            <li><span id="J_ReimburseDoc" class='icon'>h</span></li>
+        </ul>
+    </section>
+</script>
+
+<!--消息提示模板-->
+<script type="text/x-handlebars-template" id="J_MsgTipsTpl">
+    <section id="J_MessageTips">
+        <div id="J_SuccessTips" class="form-check-prompt prompt-success fn-hide">
+            <div class="check-prompt-bg"></div>
+            <p class="check-prompt-txt" id="J_SuccessContent"></p>
+        </div>
+        <div id="J_ErrorTips" class="form-check-prompt fn-hide">
+            <div class="check-prompt-bg"></div>
+            <p id="J_TipsContent" class="check-prompt-txt"></p>
+        </div>
+    </section>
+</script>
+
+<!--嵌入外域页面（万里通、天下通、平安付）-->
+<script type="text/x-handlebars-template" id="J_DomainIframeTpl">
+    <iframe style="width:100%;height:1000px;border:none" id="J_DomainIframe">
+    </iframe>
+</script>
+
+<!--loading效果-->
+<script type="text/x-handlebars-template" id="J_LoadingTemplate">
+    <div id="J_LoadingMash" class="fn-hide">
+        <div class="p-tip-mash"></div>
+        <div class="p-tip-loading"><img src="/fcs/m/images/loading.gif" height="54" width="55"></div>
+    </div>
+</script>
+
+<!--天气-->

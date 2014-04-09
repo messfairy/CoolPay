@@ -1,0 +1,327 @@
+<!--订单容器(展)-->
+<script type="text/x-handlebars-template" id="J_OrdersTemplate">
+    <section id="content" class="p-lr10">
+        <div class="cl-order-record">
+            <div class="order-record-line"></div>
+            <ul class="order-record-time-list">
+                <li class="order-record-time-now">
+                    <div class="order-record-list time-separate">
+                        <span class="record-cont" id="J_NowRecords">现在</span>
+                        <figure class="t_icon"></figure>
+                    </div>
+                    <div id="J_NowaContainer"></div>
+                    <p id="J_LoadMoreNow" class="J_LoadMore">+点击加载更多</p>
+                </li>
+                <li>
+                    <div class="order-record-list time-separate">
+                        <span class="record-cont" id="J_PrevRecords">一个月以前</span>
+                        <figure class="t_icon"></figure>
+                    </div>
+                    <div id="J_PrevContainer"></div>
+                    <p id="J_LoadMorePre" class="J_LoadMore fn-hide">+点击加载更多</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+</script>
+
+<!--折叠机票(展)-->
+<script type="text/x-handlebars-template" id="J_AirMultiTemplate">
+    <div class="order-record-list">
+        <div class="order-record-enable J_MultiOrders" data-id="{{orderId}}">
+            <div class="record-cont layer-border1"></div>
+            <div class="record-cont layer-border2"></div>
+            <div class="record-cont J_MultiAirDetails">
+                <span></span>
+                <header class="record-cont-header">
+                    <p class="record-name">出差人: {{psgName}}<span class="confirm-info">共{{orderSize}}人</span></p>
+                    <p class="record-time">航班：{{airWays}}({{airLine}}))&nbsp;{{depDate}}</p>
+                </header>
+                <section class="record-cont-content">
+                    <ul class="record-detail">
+                        <li>{{showTime depTime}}-{{showTime arrTime}} {{departureCn}}-{{arrivalCn}}</li>
+                    </ul>
+                </section>
+                <footer class="record-cont-footer fn-hide J_PsgInfo">
+                    <ul class="fn-clear">
+                        <li {{#if toSharePersonUm}}class="selected"{{/if}}>
+                            <span class="J_PsgsDetails" data-id="{{orderId}}">{{psgName}}</span>
+                        </li>
+                        <!--其他多个出差人的叠加机票-->
+                        {{#each psgInfos}}
+                            <li class="J_PsgsDetails" data-id="{{orderId}}">{{psgName}}</li>
+                        {{/each}}
+                    </ul>
+                </footer>
+            </div>
+            {{#if toSharePersonUm}}<figure class="e_icon"></figure>{{/if}}
+        </div>
+        <figure class="f_icon"></figure>
+    </div>
+</script>
+
+<!--单张机票订单(展)-->
+<script type="text/x-handlebars-template" id="J_AirSingleTemplate">
+    <div class="order-record-list">
+        <div class="{{#if toSharePersonUm}}order-record-enable{{else}}order-record-disable{{/if}} J_AirDetails" data-id="{{orderId}}">
+            <div class="record-cont">
+                <span></span>
+                <header class="record-cont-header">
+                    <div class="record-name">出差人: {{psgName}}</div>
+                    <div class="record-time">航班：{{airWays}}({{airLine}})&nbsp;{{depDate}}</div>
+                </header>
+                <section class="record-cont-content">
+                    <ul class="record-detail">
+                        <li>{{showTime depTime}}-{{showTime arrTime}} {{departureCn}}-{{arrivalCn}}</li>
+                    </ul>
+                </section>
+            </div>
+            <figure class="e_icon"></figure>
+        </div>
+        <figure class="f_icon"></figure>
+    </div>
+</script>
+
+<!--酒店订单(展)-->
+<script type="text/x-handlebars-template" id="J_HotelTemplate">
+    <div class="order-record-list hotel-record">
+        <div class="{{hotelSplit this}} J_HotelDetails" data-id="{{orderId}}">
+            <div class="record-cont">
+                <span></span>
+                {{#if status_in}}
+                    <header class="record-cont-header">
+                        <p class="record-name">出差人: {{showPerson this}} <span class="confirm-info">共{{realDays}}晚</span>
+                        </p>
+
+                        <p class="record-time">日期：{{realInTime}}至{{realLeaveTime}}</p>
+                    </header>
+                {{else}}
+                    <header class="record-cont-header">
+                        <p class="record-name">出差人: {{showPerson this}} <span class="confirm-info">共{{preDays}}晚</span>
+                        </p>
+
+                        <p class="record-time">日期：{{preInTime}}至{{preLeaveTime}}</p>
+                    </header>
+                {{/if}}
+                <section class="record-cont-content">
+                    <ul class="record-detail">
+                        <li>{{hotelName}}</li>
+                        <!--<li>上海市浦东新区陆家嘴环路1222号</li>-->
+                    </ul>
+                </section>
+            </div>
+            <figure class="e_icon"></figure>
+        </div>
+        <figure class="h_icon"></figure>
+    </div>
+</script>
+
+<!--订单搜索页面(展)-->
+<script type="text/x-handlebars-template" id="J_OrderSearchTpl">
+    <section id="content">
+        <div class="info-content info-content-nobdr">
+            <div class="info-table-content">
+                <ul class="info-table info-table-row-bdr row-p-l30 info-row-c-3571be row-label-w145">
+                    <li>
+                        <div class="info-row">
+                            <span class="info-row-label">时间：</span>
+                            <span class="info-row-cont select-icon">
+                                <select id="J_Interval" class="select-css">
+                                    <option value="">不限</option>
+                                    <option value="+6">未来</option>
+                                    <option value="-1">近一个月</option>
+                                    <option value="-3">近3个月</option>
+                                    <option value="-6">近半年</option>
+                                    <option value="-12">近一年</option>
+                                    <option value="-24">更久</option>
+                                </select>
+                            </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="info-row">
+                            <span class="info-row-label">订单类型：</span>
+                            <span class="info-row-cont select-icon">
+                                <select id="J_Type" name="type" class="select-css">
+                                    <option value="0">不限</option>
+                                    <option value="1">机票</option>
+                                    <option value="2">酒店</option>
+                                </select>
+                            </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="info-row">
+                            <span class="info-row-label">拆单类型：</span>
+                            <span class="info-row-cont select-icon">
+                                <select id="J_OrderType" class="select-css">
+                                    <option value="">我的订单</option>
+                                    <option value="N">已拆单</option>
+                                    <option value="Y">已接受的拆单</option>
+                                </select>
+                            </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="info-row p-lr30">
+                            <span class="info-row-label">出差人：</span><span class="info-row-cont">
+                            <input type="text" id="J_CCName" name="CCName" placeholder="请输入出差人"></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="content-footer"><span id="J_SearchConfirm" class="btn-css j-btn">确定</span></div>
+    </section>
+</script>
+
+<!-- 机票订单详情(彬)-->
+<script type="text/x-handlebars-template" id="J_AirmessageTemplate">
+    <section class="order-detail">
+        <h2>订单信息</h2>
+
+        <div class="order-detail-cont">
+            <ul class="order-detail-cont-list w170 fn28">
+                <li><span class="list-order-name">订单状态：</span><span class="list-order-cont">{{getOpType opType}}</span>
+                </li>
+                <li><span class="list-order-name">订单号：</span><span class="list-order-cont">{{orderCD}}</span>
+                </li>
+                <li><span class="list-order-name">日期：</span><span class="list-order-cont">{{getTime dateCreated}}</span>
+                </li>
+                <li><span class="list-order-name">乘坐状态：</span><span
+                        class="list-order-cont fn-c-ff4700">{{showRide isRide}}</span></li>
+            </ul>
+        </div>
+    </section>
+    <section class="order-detail flight-info">
+        <h2>航班信息</h2>
+
+        <div class="order-detail-cont ul-bdr-1b-ccc">
+            <ul class="flight-icon order-detail-cont-list">
+                <li>{{depDate}}</li>
+                <li>{{departureCn}}-{{arrivalCn}}</li>
+                <!--此处机型字段尚缺 以后需加上-->
+                <li>{{airWays}} {{airLine}} | {{seatCode}} {{flightType}}</li>
+            </ul>
+            <ul class="order-detail-cont-list">
+                <li><span class="fn32">{{showTime depTime}}</span> {{depAirPortName}}{{depAirFloor}}</li>
+                <li><span class="fn32">{{showTime arrTime}}</span> {{arrAirPortName}}{{arrAirFloor}}</li>
+            </ul>
+            <ul class="order-detail-cont-list">
+                <li class="separate"><p>机票价：<span class="fn-c-ff4700">&yen;{{ticketPrice}}</span></p>
+
+                    <p>机建：<span class="fn-c-ff4700">&yen;{{buildFee}}</span></p>
+
+                    <p>燃油：<span class="fn-c-ff4700">&yen;{{oilTax}}</span></p></li>
+
+
+                <li class="separate">
+                    <p>保险费：<span class="fn-c-ff4700">&yen;{{preMium}}</span></p>
+                </li>
+                <li><span class="quit-modif-condition" id="J_ShowNote">退改签条件</span>
+                    <div style="display:none" class="quit-show" id="note">
+                        <div>修改描述: {{updateNote}}</div>
+                        <div>改签描述: {{changeNote}}</div>
+                        <div>退票描述: {{refundNote}}</div>
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="order-detail other-info">
+        <h2>其他信息</h2>
+        <div class="order-detail-cont ul-bdr-1b-ccc">
+            <ul class="order-detail-cont-list w130">
+                <li><span class="list-order-name">登机人：</span><span class="list-order-cont"><p>{{psgName}}
+                    （集团）</p><p>{{certType}}{{certId}}</p></span></li>
+                <li><span class="list-order-name">联系人：</span><span
+                        class="list-order-cont">{{ticketContactName}} <span> 电话:{{ticketContactPhone}}</span></span></li>
+            </ul>
+            <ul class="order-detail-cont-list w130">
+                <li><span class="list-order-name">配送信息：{{deliveryInfo}}</span><span class="list-order-cont"></span></li>
+            </ul>
+        </div>
+    </section>
+    <div class="content-footer"><p class="fn24 fn-c-aaa p-txt">退改签请联系芒果客服 <a href="tel:4008666666"
+                                                                             class="fn-c-ff4700 fn32 tel-icon">4008666666</a>
+    </p></div>
+    {{getRide this}}
+    </div>
+</script>
+
+
+<!--酒店订单详情模板-->
+<script type="text/x-handlebars-template" id="J_HotelmessageTemplate">
+    <div id="content">
+        <section class="order-detail">
+            <h2>订单信息</h2>
+            <div class="order-detail-cont">
+                <ul class="order-detail-cont-list w170 fn28">
+                    <li><span class="list-order-name">订单状态：</span><span
+                            class="list-order-cont">{{getOrderStatus orderStatus}}</span></li>
+                    <li><span class="list-order-name">订单号：</span><span class="list-order-cont">{{orderCode}}</span></li>
+                    <li><span class="list-order-name">预订日期：</span><span
+                            class="list-order-cont">{{getTime createTime}}</span>
+                    </li>
+                    <li><span class="list-order-name">订单总额：</span><span
+                            class="list-order-cont fn-c-ff4700">&yen;{{getCash this}}</span></li>
+                </ul>
+            </div>
+        </section>
+        <section class="order-detail hotel-info">
+            <h2>酒店信息</h2>
+
+            <div class="order-detail-cont ul-bdr-1b-ccc">
+                <h3>{{hotelName}}</h3>
+
+                <div class="separate-line-ccc"></div>
+                <!--<ul class="order-detail-cont-list w92 fn-hide">-->
+                <!--<li><span class="list-order-name">地址：</span><span-->
+                <!--class="list-order-cont">{{roomType}}</span></li>-->
+                <!--<li><span class="list-order-name">客服：</span><span class="list-order-cont">0755-83208888</span></li>-->
+                <!--</ul>-->
+                <ul class="order-detail-cont-list w200">
+                    <li><span class="list-order-name">{{roomType}}：</span><span class="list-order-cont">{{roomNum}}
+                        间</span></li>
+                    {{#if status_in}}
+                        <li>
+                            <span class="list-order-name">入住时间：</span><span class="list-order-cont">{{realInTime}}
+                            至{{realLeaveTime}} 共{{realDays}}晚</span>
+                        </li>
+                    {{else}}
+                        <li>
+                            <span class="list-order-name">入住时间：</span><span class="list-order-cont">{{preInTime}}
+                            至{{preLeaveTime}} 共{{preDays}}晚</span>
+                        </li>
+                    {{/if}}
+                </ul>
+                <div class="separate-line-ccc"></div>
+                <ul class="order-detail-cont-list w200">
+                    <li>
+                        <span class="list-order-name">入住人：</span>
+                        <span class="list-order-cont">{{showPerson this}}</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="order-detail">
+            <h2>支付信息</h2>
+
+            <div class="order-detail-cont">
+                <ul class="order-detail-cont-list w200">
+                    <li><span class="list-order-name">支付方式：</span><span class="list-order-cont">到店付款</span></li>
+                    <!--<li><span class="list-order-name">担保情况：</span><span class="list-order-cont">未担保</span></li>-->
+                </ul>
+            </div>
+        </section>
+        <div class="content-footer"><p class="fn24 fn-c-aaa p-txt">退改签请联系芒果客服 <a href="tel:4008666666"
+                                                                                 class="fn-c-ff4700 fn32 tel-icon">4008666666</a>
+        </p></div>
+        {{showOrderStatus this}}
+    </div>
+</script>
+
+
+

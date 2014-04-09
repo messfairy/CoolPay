@@ -1,0 +1,23 @@
+{"flag": true, "message": "查询成功！", "result": {
+    "thdList": [{
+        "startTime": "开始时间",
+        "endTime": "结束时间",
+        "dateCreate": "2013-10-19",
+        "tripStatus": "报销单状态",
+        "payeName": "钟愉彬",
+        "infoTime":"2013-12-12",
+        "allAmount":200,
+        "tripStatus": "已完成"
+    },
+        {
+            "startTime": "开始时间",
+            "endTime": "结束时间",
+            "dateCreate": "2013-10-19",
+            "tripStatus": "报销单状态",
+            "payeName": "李平安",
+            "infoTime":"2013-12-12",
+            "allAmount":500,
+            "tripStatus": "已保存"
+        }]
+
+}}

@@ -1,0 +1,403 @@
+<!--注册-->
+<script type="text/x-handlebars-template" id="J_RegisterTemplate">
+    <section id="content">
+        <div class="reg-login-content">
+            <fieldset>
+                <div class="reg-form">
+                    <ul>
+                        <li>
+                            <label class="label-name"></label>
+                            <div class="form-ipt-content">
+                                <input id="J_UserName" type="text" placeholder="输入UM账号" class="ipt-focus ipt-um" autocapitalize="off" />
+                                <div class="ipt-clear-btn"><span></span></div>
+                                <div id="J_UMCheckFlag" class="fn-hide ipt-check-icon"><span></span></div>
+                            </div>
+                        </li>
+                        <li>
+                            <label class="label-password clear-bottom-line"></label>
+                            <div class="form-ipt-content">
+                                <input id="J_Password" type="password" placeholder="设置密码" class="ipt-focus ipt-password" autocapitalize="off" />
+                                <div class="ipt-clear-btn"><span></span></div>
+                                <div id="J_PwdCheckFlag" class="fn-hide ipt-check-icon"><span></span></div>
+                            </div>
+                        </li>
+                        <li>
+                            <label class="label-empty"></label>
+                            <div class="form-ipt-content">
+                                <input id="J_Password2" type="password" placeholder="确认密码" class="ipt-focus ipt-password" autocapitalize="off" />
+                                <div class="ipt-clear-btn"><span></span></div>
+                                <div id="J_Pwd2CheckFlag" class="fn-hide ipt-check-icon"><span></span></div>
+                            </div>
+                        </li>
+                        <li>
+                            <label class="label-tel"></label>
+                            <div class="form-ipt-content">
+                                <input id="J_PhoneNumber" type="text" placeholder="输入常用手机" class="ipt-focus ipt-tel" autocapitalize="off" />
+                                <div class="ipt-clear-btn"><span></span></div>
+                                <div id="J_MobileCheckFlag" class="fn-hide ipt-check-icon"><span></span></div>
+                            </div>
+                        </li>
+                        <li>
+                            <label class="label-move-check"></label>
+                            <div class="form-ipt-content">
+                                <input id="J_DynamicCode" type="text" placeholder="输入验证码" class="ipt-focus ipt-move-check" autocapitalize="off" />
+                                <div class="ipt-clear-btn"><span></span></div>
+                                <div id="J_DynamicCheckFlag" class="fn-hide ipt-check-icon"><span></span></div>
+                            </div>
+                            <div class="form-ipt-operate">
+                                <span id="J_SendDynamic" class="form-sent-check">发送验证码</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="form-btn">
+                    <span id="J_RegisterSubmit" class="form-btn-css">注册</span>
+                </div>
+            </fieldset>
+        </div>
+        <div id="J_SuccessTips" class="form-check-prompt prompt-success fn-hide">
+            <div class="check-prompt-bg"></div>
+            <p class="check-prompt-txt" id="J_SuccessContent"></p>
+        </div>
+        <div id="J_ErrorTips" class="form-check-prompt fn-hide">
+            <div class="check-prompt-bg"></div>
+            <p id="J_TipsContent" class="check-prompt-txt"></p>
+        </div>
+    </section>
+    <!-- 发送邮箱激活提示-->
+    <div id="J_RegisterOKTips" class="fn-hide">
+        <div class="p-tip-mash"></div>
+        <div class="p-tip-layout">
+            <section class="tip-layout-content">
+                <p class="tal">系统已向您的内网邮箱发送激活邮件，请前往激活完成注册。</p>
+            </section>
+            <footer class="tip-layout-footer">
+                <span class="tip-btn fn-c-ff4700" id="J_Next">继续</span>
+            </footer>
+        </div>
+    </div>
+</script>
+
+<!--登录-->
+<script type="text/x-handlebars-template" id="J_LoginTemplate">
+    <section id="content">
+        <div class="reg-login-content">
+            <fieldset>
+                <div class="reg-form login-form">
+                    <ul>
+                        <li>
+                            <label class="label-name"></label>
+                            <div class="form-ipt-content">
+                                <input type="text" id="J_LoginName" placeholder="输入注册手机号" class="ipt-focus ipt-um" autocapitalize="off" />
+                                <div class="ipt-clear-btn"><span></span></div>
+                            </div>
+                            <div id="J_NameCheckFlag" class="fn-hide ipt-check-icon"><span></span></div>
+                        </li>
+                        <li>
+                            <label class="label-password clear-bottom-line"></label>
+                            <div class="form-ipt-content">
+                                <input type="password" id="J_LoginPwd" placeholder="输入密码" class="ipt-focus ipt-password" autocapitalize="off" id="J-passWord" />
+                                <div class="ipt-clear-btn"><span></span></div>
+                            </div>
+                            <div class="form-ipt-operate">
+                                <div class="ipt-show-password" id="J_ShowPassword"><span></span></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="form-btn">
+                    <span class="form-btn-css" id="J_LoginSubmit">登录</span>
+                </div>
+                <div class="fn-clear">
+                    <span class="pwd-what" id="J_ResetPwd">忘记密码？</span>
+                </div>
+            </fieldset>
+        </div>
+        <div id="J_SuccessTips" class="form-check-prompt prompt-success fn-hide">
+            <div class="check-prompt-bg"></div>
+            <p class="check-prompt-txt" id="J_SuccessContent"></p>
+        </div>
+        <div id="J_ErrorTips" class="form-check-prompt fn-hide">
+            <div class="check-prompt-bg"></div>
+            <p id="J_TipsContent" class="check-prompt-txt"></p>
+        </div>
+    </section>
+</script>
+
+<!--忘记密码后，重置登录密码(展)-->
+<script type="text/x-handlebars-template" id="J_ResetPwdTpl">
+    <section id="content">
+        <div class="info-content m-b20">
+            <div class="info-table-content">
+                <ul class="info-table info-table-row-bdr row-label-w205 row-p-lr30">
+                    <li class="ipt-confirm">
+                        <div class="info-row">
+                            <div class="info-row-cont"><input type="text" id="J_UmCode" placeholder="用户UM号" value=""/></div>
+                        </div>
+                    </li>
+                    <li class="ipt-confirm">
+                        <div class="info-row">
+                            <div class="info-row-cont"><input type="text" id="J_MobileNo" placeholder="用户手机号" value=""/></div>
+                        </div>
+                    </li>
+                    <li class="ipt-confirm">
+                        <p class="ipt-confirm-txt fn-hide" id="J_DynamicTips"></p>
+                        <div class="info-row webkit-valign">
+                            <input type="text" id="J_DynamicCode" placeholder="输入短信验证码" class="ipt-tel ipt-block-flex" autocapitalize="off">
+                            <span class="form-sent-check form-sent-check-w268h60" id="J_SendDynamic">发送验证码</span>
+                        </div>
+                    </li>
+                    <li class="ipt-confirm">
+                        <p class="ipt-confirm-txt">密码由6-16位英文字母、数字或符号组成</p>
+                        <div class="info-row">
+                            <div class="info-row-cont"><input type="password" id="J_NewPwd" placeholder="新密码" value=""/></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="info-row">
+                            <div class="info-row-cont"><input type="password" id="J_NewPwd2" placeholder="确认新密码" value=""/></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="content-footer"><span class="btn-css j-btn" id="J_ResetSubmit">确定</span></div>
+    </section>
+    <div id="J_TipsMash" class="fn-hide">
+        <div class="p-tip-mash"></div>
+        <div class="p-tip-layout">
+            <div class="tip-layout-bg1"></div>
+            <div class="tip-layout-bg2">
+                <section class="tip-layout-content p-tal">
+                    <p>重置密码成功，请使用新密码登录。</p>
+                </section>
+                <footer class="tip-layout-footer">
+                    <span id="J_ConfirmLogin" class="tip-btn fn-c-ff4700">确定</span>
+                </footer>
+            </div>
+        </div>
+    </div>
+</script>
+
+<!--修改登录密码(展)-->
+<script type="text/x-handlebars-template" id="J_ChangePwdTpl">
+    <section id="content">
+        <div class="info-content m-b20">
+            <div class="info-table-content">
+                <ul class="info-table info-table-row-bdr row-label-w205 row-p-l30">
+                    <li>
+                        <div class="info-row">
+                            <div class="info-row-cont"><input type="password" id="J_CurrentPwd" placeholder="原密码" value=""/></div>
+                        </div>
+                    </li>
+                    <li class="ipt-confirm">
+                        <p class="ipt-confirm-txt">密码由6-16位英文字母、数字或符号组成</p>
+                        <div class="info-row">
+                            <div class="info-row-cont"><input type="password" id="J_NewPwd" placeholder="新密码" value=""/></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="info-row">
+                            <div class="info-row-cont"><input type="password" id="J_NewPwd2" placeholder="确认新密码" value=""/></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="content-footer"><span class="btn-css j-btn" id="J_UpdatePwd">下一步</span></div>
+    </section>
+    <div id="J_TipsMash" class="fn-hide">
+        <div class="p-tip-mash"></div>
+        <div class="p-tip-layout">
+            <div class="tip-layout-bg1"></div>
+            <div class="tip-layout-bg2">
+                <section class="tip-layout-content p-tal">
+                    <p>修改成功，请使用新密码登录。</p>
+                </section>
+                <footer class="tip-layout-footer">
+                    <span id="J_ConfirmLogin" class="tip-btn fn-c-ff4700">确定</span>
+                </footer>
+            </div>
+        </div>
+    </div>
+</script>
+<!--手机号码修改-->
+<script type="text/x-handlebars-template" id="J_MobileUpdateTpl">
+    <div id="J_PwdAuthDialog">
+        <div class="p-tip-mash"></div>
+        <div class="p-tip-layout">
+            <div class="tip-layout-bg1"></div>
+            <div class="tip-layout-bg2">
+                <header class="tip-layout-header"><h2>安全验证</h2></header>
+                <section class="tip-layout-content p-tal">
+                    <div class="reg-form">
+                        <ul>
+                            <li class="bg-fff">
+                                <input id="J_LoginPwd" type="password" placeholder="请输入登录密码" class="ipt-tel" autocapitalize="off" />
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <footer class="tip-layout-footer">
+                    <span id="J_CancelUpdate" class="tip-btn">取消</span>
+                    <span id="J_ConfirmUpdate" class="tip-btn fn-c-ff4700">确定</span>
+                </footer>
+            </div>
+        </div>
+    </div>
+    <section id="content">
+        <div class="info-content m-b20">
+            <h2>请输入新手机号和验证码</h2>
+            <div class="info-table-content">
+                <ul class="info-table info-table-row-bdr row-label-w205 row-p-lr30">
+                    <li class="ipt-confirm">
+                        <div class="info-row">
+                            <input type="text" id="J_NewMobile" placeholder="新手机号" class="ipt-tel ipt-block-flex" autocapitalize="off">
+                        </div>
+                    </li>
+                    <li class="ipt-confirm">
+                        <p class="ipt-confirm-txt fn-hide" id="J_DynamicTips"></p>
+                        <div class="info-row webkit-valign">
+                            <input type="text" id="J_DynamicCode" placeholder="输入短信检验码" class="ipt-tel ipt-block-flex" autocapitalize="off">
+                            <span class="form-sent-check form-sent-check-w268h60" id="J_SendDynamic">发送验证码</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="content-footer"><span class="btn-css j-btn" id="J_UpdateMobile">确定</span></div>
+    </section>
+    <div id="J_TipsMash" class="fn-hide">
+        <div class="p-tip-mash"></div>
+        <div class="p-tip-layout">
+            <div class="tip-layout-bg1"></div>
+            <div class="tip-layout-bg2">
+                <section class="tip-layout-content p-tal">
+                    <p>修改手机号成功！</p>
+                </section>
+                <footer class="tip-layout-footer">
+                    <span id="J_ConfirmLogin" class="tip-btn fn-c-ff4700">确定</span>
+                </footer>
+            </div>
+        </div>
+    </div>
+</script>
+
+<!-- 用户信息 -->
+<script type="text/x-handlebars-template" id="J_UserInfoSetTpl">
+    <div id="content" class="bg-233143" style="height:100%;">
+        <div class="set-content">
+            <header class="set-content-header arrow-left-icon-788595">
+                <h2>{{cnName}}({{deptName}})</h2>
+
+                <p class="set-content-header-email email-icon-758eb1">{{um}}@pingan.com.cn</p>
+                <figure class="photo"><img src="/fcs/m/images/photo.jpg"></figure>
+            </header>
+            <section class="info-content m-b30">
+                <div class="info-table-content">
+                    <ul class="info-table info-table-row-bdr row-p-lr30">
+                        <li>
+                            <div class="info-row arrow-left-icon-788595">
+                                <div class="info-row-cont lock-icon-acc2dd">账户密码</div>
+                                <div class="info-row-right" id="J_ChangePwd">更换</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="info-row arrow-left-icon-788595">
+                                <div class="info-row-cont tel-icon-acc2dd fn-c-617288"><span>已绑定手机号</span>
+                                    <span>{{phoneNumber}}</span></div>
+                                <div class="info-row-right" id="J_ChangeMobile">更换</div>
+                            </div>
+                        </li>
+                        {{#if epayNum}}
+                            <li>
+                                <div class="info-row arrow-left-icon-788595">
+                                    <div class="info-row-cont tel-icon-acc2dd fn-c-617288">支付账户 {{epayNum}}</div>
+                                    <div class="info-row-right" id="J_SendEpayNum">更换</div>
+                                </div>
+                            </li>
+                        {{else}}
+                            <li>
+                                <div class="info-row arrow-left-icon-788595">
+                                    <div class="info-row-cont tel-icon-acc2dd">支付账户</div>
+                                    <div class="info-row-right" id="J_SendEpayNum">绑定</div>
+                                </div>
+                            </li>
+                        {{/if}}
+                    </ul>
+                </div>
+            </section>
+
+            <section class="info-content">
+                <div class="info-table-content">
+                    <ul class="info-table info-table-row-bdr row-p-lr30">
+                        <li>
+                            <div class="info-row arrow-left-icon-788595">
+                                <div class="info-row-cont feedback-icon-acc2dd">意见反馈</div>
+                                <div class="info-row-right"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="info-row arrow-left-icon-788595">
+                                <div class="info-row-cont about-icon-acc2dd">关于我们</div>
+                                <div class="info-row-right"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="info-row arrow-left-icon-788595">
+                                <div class="info-row-cont praise-icon-acc2dd">给我好评</div>
+                                <div class="info-row-right"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div id="J-tipMash">
+        <div class="p-tip-mash"></div>
+        <div class="p-tip-layout">
+            <div class="tip-layout-bg1"></div>
+            <div class="tip-layout-bg2">
+                <header class="tip-layout-header"><h2>温馨提示</h2></header>
+                <section class="tip-layout-content p-tal">
+                    <p>绑定平安壹钱包账户，轻松支付收款，是否立即绑定？</p>
+                </section>
+                <footer class="tip-layout-footer">
+                    <span class="tip-btn" id="J_NoBound">暂不绑定</span>
+                    <span class="tip-btn fn-c-ff4700" id="J_Bound">立即绑定</span>
+                </footer>
+            </div>
+        </div>
+    </div>
+</script>
+
+<!-- 用户信息验证码页面（彬） -->
+<script type="text/x-handlebars-template" id="J_TipSendTpl">
+    <div class="p-tip-mash"></div>
+    <div class="p-tip-layout">
+        <div class="tip-layout-bg1"></div>
+        <div class="tip-layout-bg2">
+            <header class="tip-layout-header"><h2>安全验证</h2></header>
+            <section class="tip-layout-content p-tal">
+                <div class="reg-form">
+                    <ul>
+                        <li class="bg-fff">验证码将发送到：{{phoneNumber}}</li>
+                        <li>
+                            <input id="J_DynamicPd" type="text" placeholder="输入验证码" class="ipt-tel" autocapitalize="off">
+                            <span class="form-sent-check" id="J_DynamicId">发送验证码</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <footer class="tip-layout-footer">
+                <span class="tip-btn" id="J_SendCencel">取消</span>
+                <span class="tip-btn fn-c-ff4700" id="J_SendEnter">确定</span>
+            </footer>
+        </div>
+        <div id="J_ErrorTips" class="form-check-prompt fn-hide" style="display: none;">
+            <div class="check-prompt-bg"></div>
+            <p id="J_TipsContent" class="check-prompt-txt"></p>
+        </div>
+    </div>
+</script>

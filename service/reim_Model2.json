@@ -1,0 +1,221 @@
+{
+    "flag": true,
+    "message": "查询成功！",
+    "result": {
+        "allAmounts":0,
+        "perList": [
+            {
+                "allowance": "100",
+                "createdBy": null,
+                "dateCreated": null,
+                "dateUpdated": null,
+                "mts": "B类",
+                "tripDays": "3",
+                "tripId": null,
+                "tripPersonId": "113",
+                "tripPersonName": "苏峰",
+                "tripPersonUm": "SUFENG633",
+                "updatedBy": null
+            },
+            {
+                "allowance": "100",
+                "createdBy": null,
+                "dateCreated": null,
+                "dateUpdated": null,
+                "mts": "B类",
+                "tripDays": "3",
+                "tripId": null,
+                "tripPersonId": "114",
+                "tripPersonName": "许磊",
+                "tripPersonUm": "XULEI035",
+                "updatedBy": null
+            },
+            {
+                "allowance": "80",
+                "createdBy": null,
+                "dateCreated": null,
+                "dateUpdated": null,
+                "mts": "C类及其他",
+                "tripDays": "3",
+                "tripId": null,
+                "tripPersonId": "EDC6D1805A40253AE0440018FE2DA14D",
+                "tripPersonName": "毛主席",
+                "tripPersonUm": "LIQIANG432",
+                "updatedBy": null
+            },
+            {
+                "allowance": "80",
+                "createdBy": null,
+                "dateCreated": null,
+                "dateUpdated": null,
+                "mts": "C类及其他",
+                "tripDays": "3",
+                "tripId": null,
+                "tripPersonId": "EDC6D1805A42253AE0440018FE2DA14D",
+                "tripPersonName": "李德立",
+                "tripPersonUm": "LINYANG001",
+                "updatedBy": null
+            }
+        ],
+        "List": [
+            {
+                "mts": "B类",
+                "tripId": 10018,
+                "tripPersonId": "113",
+                "tripPersonName": "苏峰",
+                "tripPersonUm": "SUFENG633",
+                "map": {
+                    "train": [
+                        {
+                            "createdBy": null,
+                            "dateCreated": null,
+                            "dateUpdated": null,
+                            "discount": 0.58,
+                            "endCity": "上海",
+                            "endDate": 1386086400000,
+                            "grade": "卧铺",
+                            "idTicketOrder": null,
+                            "means": "火车",
+                            "meansNum": "T186",
+                            "mts": null,
+                            "price": 1258,
+                            "roundTripId": "ticket-005",
+                            "startCity": "深圳",
+                            "startDate": 1385827200000,
+                            "tripId": 10018,
+                            "tripPersonId": "113",
+                            "tripPersonName": null,
+                            "tripPersonUm": null,
+                            "updatedBy": null
+                        }
+                    ]
+                }
+            },
+            {
+                "mts": "B类",
+                "tripId": 10018,
+                "tripPersonId": "114",
+                "tripPersonName": "许磊",
+                "tripPersonUm": "XULEI035",
+                "map": {
+                    "plane": [
+                        {
+                            "discount": 0.58,
+                            "endCity": "上海",
+                            "endDate": 1386086400000,
+                            "grade": "经济舱",
+                            "idTicketOrder": "2554538",
+                            "means": "飞机",
+                            "meansNum": "T1",
+                            "mts": null,
+                            "price": 1258,
+                            "roundTripId": "ticket-002",
+                            "startCity": "深圳",
+                            "startDate": 1385827200000,
+                            "tripId": 10018,
+                            "tripPersonId": "114"
+                        }
+                    ]
+                }
+            },
+            {
+                "mts": "C类及其他",
+                "tripId": 10018,
+                "tripPersonId": "EDC6D1805A40253AE0440018FE2DA14D",
+                "tripPersonName": "毛主席",
+                "tripPersonUm": "LIQIANG432",
+                "map": {
+                    "plane": [
+                        {
+                            "discount": 0.58,
+                            "endCity": "长春",
+                            "endDate": 1384074600000,
+                            "grade": "经济舱",
+                            "idTicketOrder": "EC48B1D26A226937E0440018FE2DA14D",
+                            "means": "飞机",
+                            "meansNum": "CZ3636",
+                            "price": 1200,
+                            "roundTripId": "EDC6D1805A41253AE0440018FE2DA14D",
+                            "startCity": "长沙",
+                            "startDate": 1384057500000,
+                            "tripId": 10018,
+                            "tripPersonId": "EDC6D1805A40253AE0440018FE2DA14D"
+                        }
+                    ]
+                }
+            },
+            {
+                "mts": "C类及其他",
+                "tripId": 10018,
+                "tripPersonId": "EDC6D1805A42253AE0440018FE2DA14D",
+                "tripPersonName": "李德立",
+                "tripPersonUm": "LINYANG001",
+                "map": {
+                    "train": [
+                        {
+                            "discount": 0.58,
+                            "means": "火车",
+                            "meansNum": "D3333",
+                            "price": 120,
+                            "roundTripId": "555",
+                            "tripId": 10018,
+                            "tripPersonId": "EDC6D1805A42253AE0440018FE2DA14D"
+                        }
+                    ],
+                    "plane": [
+                        {
+                            "discount": 0.58,
+                            "endCity": "长春",
+                            "endDate": 1384074600000,
+                            "grade": "经济舱",
+                            "idTicketOrder": "EC48B1D26A256937E0440018FE2DA14D",
+                            "means": "飞机",
+                            "meansNum": "CZ3636",
+                            "price": 1200,
+                            "roundTripId": "EDC6D1805A43253AE0440018FE2DA14D",
+                            "startCity": "长沙",
+                            "startDate": 1384057500000,
+                            "tripId": 10018,
+                            "tripPersonId": "EDC6D1805A42253AE0440018FE2DA14D"
+                        },
+                        {
+                            "discount": 0.58,
+                            "endCity": "长沙",
+                            "endDate": 1387382400000,
+                            "grade": "经济舱",
+                            "idTicketOrder": "EC48B1D26A256937E0440018FE2DA14D",
+                            "means": "飞机",
+                            "meansNum": "CZ6363",
+                            "price": 1200,
+                            "roundTripId": "123",
+                            "startCity": "长春",
+                            "startDate": 1387382400000,
+                            "tripId": 10018,
+                            "tripPersonId": "EDC6D1805A42253AE0440018FE2DA14D"
+                        }
+                    ]
+                }
+            }
+        ],
+        "tripHotelList": [
+            {
+                "allDays": 3,
+                "amount": 111,
+                "cityLevel": "一类城市",
+                "hotelCity": "深圳",
+                "hotelName": "喜来登",
+                "hotelStandard": 101,
+                "hotelType": "标准双人间",
+                "idHotelOrder": "12345",
+                "inDay": "2013-12-02",
+                "inPeopel": "苏峰,郑新良",
+                "dsa":"113,114",
+                "isSplit": "N",
+                "leaveDay": "2013-12-04",
+                "overAmount": 10,
+                "tripHotelId": "hotel-004",
+                "tripId": 10018
+            }
+
+        ]
+    }}

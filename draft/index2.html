@@ -1,0 +1,236 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>财务云</title>
+<meta name="description" content="中国平安" />
+<meta name="keywords" content="中国平安" />
+<meta content="width=640, target-densitydpi=320, user-scalable=no" name="viewport" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta content="telephone=no" name="format-detection" />
+<link rel="stylesheet" type="text/css" href="inc/base.css">
+<link rel="stylesheet" type="text/css" href="inc/public.css">
+<script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script src="js/jquery.mobile-1.4.0.min.js" type="text/javascript"></script>
+<script src="js/iscroll.js" type="text/javascript"></script>
+<style type="text/css">
+.ui-loader{display:none;}    
+</style>
+</head>
+
+<body class="bg-233143">
+<div id="warp">
+    <div class="screen-col screen-col1-show" id="J-screenShow">
+    <!-- 左侧 -->
+        <article class="screen-col1" id="J-screenLeft">
+            <div class="screen-col1-content">
+                <div class="set-content">
+                    <header class="set-content-header arrow-left-icon-788595">
+                        <h2>我的工作台</h2>                    
+                        <figure class="photo"><img src="images/photo.jpg"></figure>
+                    </header>
+                    <section class="info-content m-b30">
+                        <dl class="index-menu">
+                            <dt class="index-menu-title">常用</dt>
+                            <dd class="index-menu-content">
+                                <ul class="info-table info-table-row-bdr row-p-lr30">
+                                    <li>
+                                        <div class="info-row arrow-left-icon-233143">
+                                            <div class="info-row-cont air-icon-acc2dd">预定机票</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="info-row arrow-left-icon-233143">
+                                            <div class="info-row-cont hotel-icon-acc2dd">预定酒店</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="info-row arrow-left-icon-233143">
+                                            <div class="info-row-cont travel-icon-acc2dd">我的差旅订单</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="info-row arrow-left-icon-233143">
+                                            <div class="info-row-cont apply-icon-acc2dd">申请报销</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="info-row arrow-left-icon-233143">
+                                            <div class="info-row-cont my-icon-acc2dd">我的报销单</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="info-row arrow-left-icon-233143">
+                                            <div class="info-row-cont share-icon-acc2dd">股权关系</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl class="index-menu">
+                            <dt class="index-menu-title">其他</dt>
+                            <dd class="index-menu-content">
+                                <ul class="info-table info-table-row-bdr row-p-lr30">
+                                    <li>
+                                        <div class="info-row arrow-left-icon-233143">
+                                            <div class="info-row-cont credit-icon-acc2dd">信用体系-还款订单</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="info-row arrow-left-icon-233143">
+                                            <div class="info-row-cont travel2-icon-acc2dd">差旅标准</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </dd>
+                        </dl>                       
+                    </section>
+                    <footer>
+                        <div class="content-footer">
+                            <div class="btn-css btn-c-334459 btn-icon btn-set"><i></i>设置</div>
+                            <div class="btn-css m-l30 btn-c-334459 btn-icon btn-exit"><i></i>安全退出</div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </article>
+        
+        <!-- 右侧操作 -->
+        <article class="screen-col2" id="J-screenRight">
+            <div class="screen-col2-content">
+                <header id="news-center-bar">
+                    <div class="top-bar-cont">
+                        <h1>消息中心</h1>
+                    </div>
+                </header>
+                <section class="news-center">
+                    <ul class="news-list">
+                        <li class="new-message">
+                            <div class="news-list-title">                        
+                                <h3>报销</h3>
+                                <span class="time">9:18</span>
+                            </div>
+                            <div class="news-list-content">
+                                <p>7800元已到账</p>                        
+                            </div>
+                        </li>
+                        <li class="new-message">
+                            <div class="news-list-title">                        
+                                <h3>报销</h3>
+                                <span class="time">9:18</span>
+                            </div>
+                            <div class="news-list-content">
+                                <p>7800元已到账</p>                        
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </article>
+        
+        <!-- 中间层 -->
+        <article class="screen-col3" id="J-screenPage">
+            <div id="top-bar">
+                <div class="top-bar-cont index-top-bar-cont">
+                    <span class="btn-bar-css btn-bar-select btn-bar-left" id="J-showLeft"></span>
+                    <h1>我的工作台</h1>
+                    <span class="btn-bar-css btn-bar-message btn-bar-right" id="J-show"><span>1</span></span>
+                </div>
+            </div>            
+            <section id="weather"><img src="images/weather.jpg" width="100%" height="230"></section>
+            <nav id="nav">
+                <ul class="nav-list">
+                    <li><span class="pic"><img src="images/pic1.png"></span><span>订机票</span></li>
+                    <li><span class="pic"><img src="images/pic2.png"></span><span>订酒店</span></li>
+                    <li><span class="pic"><img src="images/pic3.png"></span><span>申请报销</span></li>
+                </ul>
+            </nav>
+            <section id="content">
+                <div class="main" style="position:absolute;width:100%;background:#f2f2f2;">
+                    <div class="index-content">
+                        <div class="index-flight-hotel">
+                            <ul class="index-info-list arrow-left-icon-c0ccda">
+                                <li>						
+                                    <div class="order-record-list">
+                                        <div class="record-cont">
+                                            <header class="record-cont-header">
+                                                <p class="record-name">出差人: 麦伟林<span>共6人</span></p>
+                                                <p class="record-time">2013.10.08  东航MU5688</p>
+                                                <p class="record-address">上海国金丽斯卡尔顿酒店</p>
+                                            </header>
+                                        </div>
+                                        <figure class="f_icon"></figure>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="order-record-list hotel-record">
+                                        <div class="record-cont">
+                                            <header class="record-cont-header">
+                                                <p class="record-name">出差人: 麦伟<span>共5晚3间</span></p>
+                                                <p class="record-time">2013.10.08  东航MU5688</p>
+                                                <p class="record-address">上海国金丽斯卡尔顿酒店</p>
+                                            </header>
+                                        </div>
+                                        <figure class="h_icon"></figure>
+                                    </div>	
+                                </li>					
+                            </ul>
+                        </div>
+                        <div class="index-other">
+                            <ul class="index-other-list">
+                                <li>
+                                    <div class="index-other-single arrow-left-icon-c0ccda">报销未提交<span class="fn-c-18a8e6 fn48">1</span>笔</div>
+                                    <figure class="n_icon"></figure>
+                                </li>
+                                <li>
+                                    <div class="index-other-single arrow-left-icon-c0ccda">报销被退回<span class="fn-c-ff7365 fn48">3</span>笔</div>
+                                    <figure class="e_icon"></figure>
+                                </li>
+                                <li>
+                                    <div class="index-other-single arrow-left-icon-c0ccda">报销待交单<span class="fn-c-2db76c fn48">5</span>笔</div>
+                                    <figure class="s_icon"></figure>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>                
+                </div>                
+            </section>
+        </article>
+	</div>
+</div>
+<script>
+var btnLeft = $("#J-showLeft"),
+    btnRight = $("#J-showRight"),
+    pageLeft = $("#J-screenLeft"),
+    pageRight = $("#J-screenRight"),
+    page = $("#J-screenPage"),
+    myScroll,
+    screenHeight = document.documentElement.clientHeight,
+    content = $("#content");
+btnLeft.bind("tap", function(){
+    page.removeAttr('style').css({'-webkit-transition': 'left .1s ease-in', '-webkit-transform': 'translate3d(0, 0, 0)', '-webkit-backface-visibility': 'hidden', '-webkit-perspective': '1000'});
+    if(pageLeft.is(":hidden")){
+        pageLeft.show();
+        page.css("left", '80%');
+    }else{        
+        page.css("left", '0');
+        pageLeft.hide();
+    }
+})
+
+btnRight.bind("tap", function(){
+    page.removeAttr('style').css({'-webkit-transition': 'right .1s ease-in', '-webkit-transform': 'translate3d(0, 0, 0)', '-webkit-backface-visibility': 'hidden', '-webkit-perspective': '1000'});
+    if(pageRight.is(":hidden")){
+        pageRight.show();
+         page.css({"right": '80%', 'left': 'auto'});
+    }else{        
+        page.css({"right": '0', 'left': 'auto'});
+        pageRight.hide();
+    }
+})
+content.height(screenHeight - 88 - 230 - 140);
+var myScroll = new iScroll("content");
+</script>
+</body>
+</html>

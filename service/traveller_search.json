@@ -1,0 +1,38 @@
+{"flag": true, "message": "查询成功！", "result": {
+    "pdList": [
+        {
+            "afterMonthTime": null,
+            "businessDesc": "平安科技深圳有限公司",
+            "ccname": null,
+            "chineseName": "郑新良",
+            "deptId": "S000033557",
+            "deptName": "平安科技集团系统开发部集团财务组",
+            "edate": null,
+            "employeeNo": "E06S03113128",
+            "hotelId": null,
+            "officerId": "4",
+            "orgId": null,
+            "paicRankDesc": "其他人员",
+            "sEGMENT_DESC": null,
+            "sEGMENT_VALUE": null,
+            "sdate": null,
+            "segment1": null,
+            "segment2": null,
+            "segment_desc": null,
+            "segment_name": null,
+            "segment_value": null,
+            "setOfBooksId": null,
+            "set_of_books_id": null,
+            "sex": "M",
+            "sobName": null,
+            "summary_flag": null,
+            "tripId": null,
+            "umAccount": null,
+            "umName": "ZHENGXINLIANG001",
+            "vendorSiteCode": null,
+            "vendorSiteId": null,
+            "vendor_id": null,
+            "vendor_name": null
+        }
+    ]
+}}

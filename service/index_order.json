@@ -1,0 +1,38 @@
+{"flag": true, "message": "查询成功！", "result": {
+    "vendorSitesList": [
+        {
+            "afterMonthTime": null,
+            "businessDesc": null,
+            "ccname": null,
+            "chineseName": null,
+            "deptId": null,
+            "deptName": null,
+            "edate": null,
+            "employeeNo": null,
+            "hotelId": null,
+            "officerId": null,
+            "orgId": "4640",
+            "paicRankDesc": null,
+            "sEGMENT_DESC": null,
+            "sEGMENT_VALUE": null,
+            "sdate": null,
+            "segment1": "000000",
+            "segment2": "000000",
+            "segment_desc": null,
+            "segment_name": null,
+            "segment_value": null,
+            "setOfBooksId": "164",
+            "set_of_books_id": null,
+            "sex": null,
+            "sobName": "IT科技帐套",
+            "summary_flag": null,
+            "tripId": null,
+            "umAccount": null,
+            "umName": null,
+            "vendorSiteCode": "OFFICE",
+            "vendorSiteId": "491272",
+            "vendor_id": null,
+            "vendor_name": null
+        }
+    ]
+}}

@@ -1,0 +1,233 @@
+<!--选择常用出差人（展）-->
+<script type="text/x-handlebars-template" id="J_TravellerTpl">
+    <section id="J_SearchLayout" class="search-layout search-btn-no">
+        <div class="search-content">
+            <div class="search-content-ipt">
+                <input id="J_SearchInput" type="text" class="search-ipt" placeholder="用户体验部/123" autocapitalize="off"/>
+                <div id="J_ClearTxt" class="ipt-clear-btn"><span></span></div>
+            </div>
+            <div class="search-content-btn" id="J_SearchCancel"><span class="btn-css btn-c-no">取消</span></div>
+        </div>
+    </section>
+    <section id="content">
+        <div class="info-content info-content-nobdr">
+            <h2>常用出差人</h2>
+            <h3><span class="info-row-cont J_TravellerItem" data-value="wanglihong001">王力宏</span><span class="info-row-right change-sure-icon"><figure class="sure-icon"></figure></span></h3>
+            <div class="info-table-content fn-hide">
+                <ul class="info-table info-table-row-bdr row-p-lr30">
+                    <li>
+                        <div class="info-row">
+                            <span class="info-row-cont arrow-right-icon fn-c-3571be">选择职级</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="info-content info-content-nobdr">
+            <h3><span class="info-row-cont J_TravellerItem" data-value="guomeimei002">郭美美</span><span class="info-row-right change-sure-icon"><figure class="sure-icon-en"></figure></span></h3>
+            <div class="info-table-content">
+                <ul class="info-table info-table-row-bdr row-p-lr30">
+                    <li>
+                        <div class="info-row">
+                            <span class="info-row-cont arrow-right-icon fn-c-3571be">选择职级</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="info-content info-content-nobdr">
+            <h3><span class="info-row-cont J_TravellerItem" data-value="zhangwuji003">张无忌</span><span class="info-row-right change-sure-icon"><figure class="sure-icon-en"></figure></span></h3>
+            <div class="info-table-content">
+                <ul class="info-table info-table-row-bdr row-p-lr30">
+                    <li>
+                        <div class="info-row">
+                            <span class="info-row-cont arrow-right-icon fn-c-3571be">B级</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</script>
+
+<!--选择收款人（展）-->
+<script type="text/x-handlebars-template" id="J_PayeeItemTpl">
+    {{#each dataArray}}
+        <li>
+            <div class="info-row J_PayeeItem">
+                <span class="info-row-cont" data-emp-no="{{employeeNo}}" data-value="{{umName}}">{{chineseName}}</span>
+            </div>
+        </li>
+    {{/each}}
+</script>
+<script type="text/x-handlebars-template" id="J_PayeeTpl">
+    <section id="J_SearchLayout" class="search-layout search-btn-no">
+        <div class="search-content">
+            <div class="search-content-ipt">
+                <input id="J_SearchInput" type="text" class="search-ipt" placeholder="张三丰/zhangsanfeng001" autocapitalize="off"/>
+                <div id="J_ClearTxt" class="ipt-clear-btn"><span></span></div>
+            </div>
+            <div class="search-content-btn" id="J_SearchCancel"><span class="btn-css btn-c-no">取消</span></div>
+        </div>
+    </section>
+    <section id="content">
+        <div class="info-content m-b20">
+            <h2>常用收款人</h2>
+            <div class="info-table-content">
+                <ul id="J_PayeeSelectList" class="info-table info-table-row-bdr row-p-lr30"></ul>
+            </div>
+        </div>
+    </section>
+    <section id="J_SearchResult" class="fn-hide">
+        <div class="info-content m-b20">
+            <div class="info-table-content">
+                <ul id="J_PayeeSearchList" class="info-table info-table-row-bdr row-p-lr30"></ul>
+            </div>
+        </div>
+    </section>
+</script>
+
+<!--选择帐套公司（展）-->
+<script type="text/x-handlebars-template" id="J_BookItemTpl">
+    {{#each dataArray}}
+        <li>
+            <div class="info-row J_BooksetItem">
+                <span class="info-row-cont" data-value="{{setOfBooksId}}">{{sobName}}</span>
+            </div>
+        </li>
+    {{/each}}
+</script>
+<script type="text/x-handlebars-template" id="J_BooksetSelectTpl">
+    <div class="info-content m-b20">
+        <div class="info-table-content">
+            <ul id="J_BookSetList" class="info-table info-table-row-bdr row-p-lr30">
+                <!--<li>-->
+                    <!--<div class="info-row J_BooksetItem">-->
+                        <!--<span class="info-row-cont" data-value="40">XT 信托账套</span>-->
+                    <!--</div>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<div class="info-row J_BooksetItem">-->
+                        <!--<span class="info-row-cont" data-value="41">JT 集团账套</span>-->
+                    <!--</div>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<div class="info-row J_BooksetItem">-->
+                        <!--<span class="info-row-cont" data-value="42">SX 寿险账套</span>-->
+                    <!--</div>-->
+                <!--</li>-->
+            </ul>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-handlebars-template" id="J_DepItemTpl">
+    {{#each dataArray}}
+        <li>
+            <div class="info-row J_DepItem">
+                <span class="info-row-cont" data-value="{{segment_value}}">{{segment_desc}}</span>
+            </div>
+        </li>
+    {{/each}}
+</script>
+
+<!--选择部门（展）-->
+<script type="text/x-handlebars-template" id="J_DepSelectTpl">
+    <div id="search-layout">
+        <div class="search-content">
+            <input type="text" class="search-ipt" placeholder="用户体验部/123" autocapitalize="off" />
+        </div>
+    </div>
+    <div class="layout-relative">
+        <div class="letter-find">
+            <div class="letter-find-bg hover"></div>
+            <ul class="letter-find-list">
+                <li class="dot">●</li>
+                <li class="dot">●</li>
+                <li class="dot">●</li>
+                <li>A</li>
+                <li>B</li>
+                <li>C</li>
+                <li>D</li>
+                <li>E</li>
+                <li>F</li>
+                <li>G</li>
+                <li>H</li>
+                <li>I</li>
+                <li>J</li>
+                <li>K</li>
+                <li>L</li>
+                <li>M</li>
+                <li>O</li>
+                <li>P</li>
+                <li>Q</li>
+                <li>R</li>
+                <li>S</li>
+                <li>T</li>
+                <li>U</li>
+                <li>V</li>
+                <li>W</li>
+                <li>X</li>
+                <li>Y</li>
+                <li>Z</li>
+            </ul>
+        </div>
+        <div class="info-content">
+            <h2>常用部门</h2>
+            <div class="info-table-content">
+                <ul id="J_UsualDepList" class="info-table info-table-row-bdr row-p-lr30">
+                    <li>
+                        <div class="info-row J_DepItem">
+                            <span class="info-row-cont" data-value="J133">J133 用户体验部</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="info-row J_DepItem">
+                            <span class="info-row-cont" data-value="J120">J120 一账通业务部</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="info-content">
+            <h2>A</h2>
+            <div class="info-table-content">
+                <ul id="J_ADepList" class="info-table info-table-row-bdr row-p-lr30">
+                    <li>
+                        <div class="info-row J_DepItem">
+                            <span class="info-row-cont" data-value="J119">J133 用户体验部2</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="info-row J_DepItem">
+                            <span class="info-row-cont" data-value="J118">J120 一账通业务部2</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="info-content">
+            <h2>B</h2>
+            <div class="info-table-content">
+                <ul id="J_BDepList" class="info-table info-table-row-bdr row-p-lr30">
+                    <li>
+                        <div class="info-row J_DepItem">
+                            <span class="info-row-cont" data-value="J117">J133 用户体验部</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="info-row J_DepItem">
+                            <span class="info-row-cont" data-value="J116">J120 一账通业务部</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="info-content">
+            <h2>C</h2>
+            <div class="info-table-content">
+                <ul id="J_CDepList" class="info-table info-table-row-bdr row-p-lr30"></ul>
+            </div>
+        </div>
+    </div>
+</script>

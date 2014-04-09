@@ -1,0 +1,39 @@
+{"flag": true, "message": "查询成功！", "result": {
+    "pdList": [
+        {
+            "afterMonthTime": null,
+            "businessDesc": "中国平安保险(集团)股份有限公司总部",
+            "ccname": null,
+            "chineseName": "王志诚",
+            "deptId": "S000000390",
+            "deptName": "集团财务企划中心集团财务部财务系统室",
+            "ePayNum": "13636641478",
+            "edate": null,
+            "employeeNo": "E00010163985",
+            "hotelId": null,
+            "officerId": "4",
+            "orgId": null,
+            "paicRankDesc": "C类及其他",
+            "sEGMENT_DESC": null,
+            "sEGMENT_VALUE": null,
+            "sdate": null,
+            "segment1": null,
+            "segment2": null,
+            "segment_desc": null,
+            "segment_name": null,
+            "segment_value": null,
+            "setOfBooksId": null,
+            "set_of_books_id": null,
+            "sex": "M",
+            "sobName": null,
+            "summary_flag": null,
+            "tripId": null,
+            "umAccount": null,
+            "umName": "WANGZHICHENG583",
+            "vendorSiteCode": null,
+            "vendorSiteId": null,
+            "vendor_id": null,
+            "vendor_name": null
+        }
+    ]
+}}

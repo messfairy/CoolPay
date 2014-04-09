@@ -1,0 +1,258 @@
+{
+    "flag": true,
+    "message": "查询成功！",
+    "result": {
+        "perList": [
+            {
+                "allowance": "100",
+                "createdBy": null,
+                "dateCreated": null,
+                "dateUpdated": null,
+                "mts": "B类",
+                "tripDays": "3",
+                "tripId": null,
+                "tripPersonId": "113",
+                "tripPersonName": "苏峰",
+                "tripPersonUm": "SUFENG633",
+                "updatedBy": null
+            },
+            {
+                "allowance": "100",
+                "createdBy": null,
+                "dateCreated": null,
+                "dateUpdated": null,
+                "mts": "B类",
+                "tripDays": "3",
+                "tripId": null,
+                "tripPersonId": "114",
+                "tripPersonName": "许磊",
+                "tripPersonUm": "XULEI035",
+                "updatedBy": null
+            },
+            {
+                "allowance": "80",
+                "createdBy": null,
+                "dateCreated": null,
+                "dateUpdated": null,
+                "mts": "C类及其他",
+                "tripDays": "3",
+                "tripId": null,
+                "tripPersonId": "EDC6D1805A40253AE0440018FE2DA14D",
+                "tripPersonName": "毛主席",
+                "tripPersonUm": "LIQIANG432",
+                "updatedBy": null
+            },
+            {
+                "allowance": "80",
+                "createdBy": null,
+                "dateCreated": null,
+                "dateUpdated": null,
+                "mts": "C类及其他",
+                "tripDays": "3",
+                "tripId": null,
+                "tripPersonId": "EDC6D1805A42253AE0440018FE2DA14D",
+                "tripPersonName": "李德立",
+                "tripPersonUm": "LINYANG001",
+                "updatedBy": null
+            }
+        ],
+        "tidList": [
+            {
+                "mts": "B类",
+                "tripId": 10010,
+                "tripPersonName": "许磊",
+                "plane": [
+                    {
+                        "means": "飞机",
+                        "price": 1258,
+                        "meansNum": "T1",
+                        "grade": "经济舱",
+                        "discount": 0.58,
+                        "roundTripId": "ticket-001"
+                    },
+                    {
+                        "means": "飞机",
+                        "price": 2000,
+                        "meansNum": "东航MU5218",
+                        "grade": "经济舱",
+                        "discount": 0.58,
+                        "roundTripId": "ticket-002"
+                    },
+                    {
+                        "means": "飞机",
+                        "price": 1258,
+                        "meansNum": "T7倒萨发生",
+                        "grade": "商务舱",
+                        "discount": 0.58,
+                        "roundTripId": "ticket-003"
+                    }
+                ],
+                "train": [
+                    {
+                        "means": "火车",
+                        "price": 1258,
+                        "meansNum": "YYY99923",
+                        "grade": "卧铺",
+                        "discount": 0.58,
+                        "roundTripId": "ticket-003"
+                    },
+                    {
+                        "means": "火车",
+                        "price": 1258,
+                        "meansNum": "YYY999",
+                        "grade": "站票",
+                        "discount": 0.58,
+                        "roundTripId": "ticket-005"
+                    }
+                ],
+                "steamship": [
+                    {
+                        "means": "轮船",
+                        "price": 1258,
+                        "meansNum": "T189",
+                        "grade": "船票",
+                        "discount": 0.58,
+                        "roundTripId": "ticket-005"
+                    },
+                    {
+                        "means": "轮船",
+                        "price": 1258,
+                        "meansNum": "T189",
+                        "grade": "船票",
+                        "discount": 0.58,
+                        "roundTripId": "ticket-005"
+                    }
+                ],
+                "car": [
+                    {
+                        "means": "大巴",
+                        "price": 1258,
+                        "meansNum": "T189",
+                        "grade": "车票",
+                        "discount": 0.58,
+                        "roundTripId": "ticket-005"
+                    },
+                    {
+                        "means": "大巴",
+                        "price": 18,
+                        "meansNum": "T189",
+                        "grade": "车票",
+                        "discount": 0.58,
+                        "roundTripId": "ticket-005"
+                    }
+                ]
+            },
+            {
+                "tripId": 10011,
+                "tripPersonName": "苏峰",
+                "mts": "B类",
+                "plane": [
+                    {
+                        "means": "飞机",
+                        "price": 1258,
+                        "meansNum": "T1",
+                        "grade": "经济舱",
+                        "discount": 0.58,
+                        "roundTripId": "123"
+                    },
+                    {
+                        "means": "飞机",
+                        "price": 2000,
+                        "meansNum": "东航MU5218",
+                        "grade": "经济舱",
+                        "discount": 0.58,
+                        "roundTripId": "125"
+                    }
+                ],
+                "train": [
+                    {
+                        "means": "火车",
+                        "price": 1258,
+                        "meansNum": "T186",
+                        "grade": "卧铺",
+                        "discount": 0.58,
+                        "roundTripId": "43432"
+                    },
+                    {
+                        "means": "火车",
+                        "price": 1258,
+                        "meansNum": "T189",
+                        "grade": "站票",
+                        "discount": 0.58,
+                        "roundTripId": "323124"
+                    }
+                ]
+            },
+            {
+                "mts": "C类",
+                "tripId": 10012,
+                "tripPersonName": "毛主席",
+                "plane": [
+                    {
+                        "means": "飞机",
+                        "price": 1258,
+                        "meansNum": "T1",
+                        "grade": "经济舱",
+                        "discount": 0.58,
+                        "roundTripId": "ticket-12"
+                    },
+                    {
+                        "means": "飞机",
+                        "price": 2000,
+                        "meansNum": "东航MU5218",
+                        "grade": "经济舱",
+                        "discount": 0.58,
+                        "roundTripId": "ticket-123"
+                    }
+                ],
+                "train": [
+                    {
+                        "means": "火车",
+                        "price": 1258,
+                        "meansNum": "T186",
+                        "grade": "卧铺",
+                        "discount": 0.58,
+                        "roundTripId": "ticket-321"
+                    },
+                    {
+                        "means": "火车",
+                        "price": 1258,
+                        "meansNum": "T189",
+                        "grade": "站票",
+                        "discount": 0.58,
+                        "roundTripId": "ticket-775"
+                    }
+                ]
+
+            },
+            {
+                "tripId":10013,
+                "tripPersonName": "小黑"
+            }
+        ],
+        "thidList": [
+            {
+                "allDays": 3,
+                "amount": 111,
+                "cityLevel": "一类城市",
+                "createdBy": null,
+                "dateCreated": null,
+                "dateUpdated": null,
+                "hotelCity": "深圳",
+                "hotelName": "喜来登",
+                "hotelStandard": 101,
+                "hotelType": "标准双人间",
+                "idHotelOrder": "12345",
+                "inDay": "2013-12-02",
+                "inPeopel": null,
+                "isSplit": "N",
+                "leaveDay": "2013-12-04",
+                "overAmount": 10,
+                "tripHotelId": "hotel-004",
+                "tripId": 10018,
+                "updatedBy": null,
+                "hotelPerson": "苏峰,郑新良"
+            }
+        ]
+    }
+}

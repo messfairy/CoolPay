@@ -1,0 +1,102 @@
+{"flag": true, "message": "查询成功！", "result": {
+    "List": [
+        {
+            "allowance": null,
+            "createdBy": null,
+            "dateCreated": null,
+            "dateUpdated": null,
+            "listInfo": null,
+            "listMeans": null,
+            "map": {},
+            "mts": "C类及其他",
+            "tripDays": null,
+            "tripId": 1112,
+            "tripPersonId": "EEA8C93D59426C63E0440018FE2DA14D",
+            "tripPersonName": "王志诚",
+            "tripPersonUm": "WANGZHICHENG583",
+            "tripPersono": null,
+            "updatedBy": null
+        },
+        {
+            "allowance": null,
+            "createdBy": null,
+            "dateCreated": null,
+            "dateUpdated": null,
+            "listInfo": null,
+            "listMeans": null,
+            "map": {},
+            "mts": "总经理室成员",
+            "tripDays": null,
+            "tripId": 1112,
+            "tripPersonId": "EEA8C93D59436C63E0440018FE2DA14D",
+            "tripPersonName": "李天一",
+            "tripPersonUm": "LITIANYI942",
+            "tripPersono": null,
+            "updatedBy": null
+        }
+    ],
+    "allAmounts": 1237,
+    "listCityTraffic": [],
+    "listSubsidy": [],
+    "othorList": [],
+    "perList": [
+        {
+            "allowance": null,
+            "createdBy": null,
+            "dateCreated": null,
+            "dateUpdated": null,
+            "listInfo": null,
+            "listMeans": null,
+            "map": null,
+            "mts": "C类及其他",
+            "tripDays": "7",
+            "tripId": null,
+            "tripPersonId": "EEA8C93D59426C63E0440018FE2DA14D",
+            "tripPersonName": "王志诚",
+            "tripPersonUm": "WANGZHICHENG583",
+            "tripPersono": null,
+            "updatedBy": null
+        },
+        {
+            "allowance": null,
+            "createdBy": null,
+            "dateCreated": null,
+            "dateUpdated": null,
+            "listInfo": null,
+            "listMeans": null,
+            "map": null,
+            "mts": "总经理室成员",
+            "tripDays": "7",
+            "tripId": null,
+            "tripPersonId": "EEA8C93D59436C63E0440018FE2DA14D",
+            "tripPersonName": "李天一",
+            "tripPersonUm": "LITIANYI942",
+            "tripPersono": null,
+            "updatedBy": null
+        }
+    ],
+    "tripHotelList": [
+        {
+            "allDays": null,
+            "amount": 1237,
+            "cityLevel": null,
+            "createdBy": null,
+            "dateCreated": null,
+            "dateUpdated": null,
+            "hotelCity": "北京",
+            "hotelName": null,
+            "hotelStandard": null,
+            "hotelType": null,
+            "idHotelOrder": null,
+            "inDay": "",
+            "inPeopel": "",
+            "inPeopelId": "",
+            "isSplit": null,
+            "leaveDay": "",
+            "overAmount": null,
+            "tripHotelId": "EEA8DCABB6C06717E0440018FE2DA14D",
+            "tripId": 1112,
+            "updatedBy": null
+        }
+    ]
+}}

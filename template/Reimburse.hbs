@@ -1,0 +1,646 @@
+<!--可报销订单列表-->
+<script type="text/x-handlebars-template" id="J_ReimOrdersTpl">
+    <div class="sure-order" id="J_AContainer">
+        <h2 class="sure-icon J_CheckAOAll">机票信息</h2>
+    </div>
+    <div class="sure-order" id="J_HContainer">
+        <h2 class="sure-icon J_CheckHOAll">酒店订单</h2>
+    </div>
+    <!--<p id="J_AddTravel" class="order_title">添加出差行程&nbsp;&nbsp;<span class="icon">x</span></p>-->
+    <div class="content-footer"><span class="btn-css J_OrdersSelect">下一步</span></div>
+    <div id="J_TipsMash" class="fn-hide">
+        <div class="p-tip-mash"></div>
+        <div class="p-tip-layout">
+            <div class="tip-layout-bg1"></div>
+            <div class="tip-layout-bg2">
+                <header class="tip-layout-header"><h2>温馨提示</h2></header>
+                <section class="tip-layout-content">
+                    <p>尚无订单记录</p>
+                </section>
+                <footer class="tip-layout-footer">
+                    <span id="J_Cancel" class="tip-btn">取消</span>
+                    <span id="J_Next" class="tip-btn fn-c-ff4700">继续</span>
+                </footer>
+            </div>
+        </div>
+    </div>
+</script>
+<!--可报销机票订单-->
+<script type="text/x-handlebars-template" id="J_AOrderTpl">
+    <div class="sure-order-content sure-icon J_Check">
+        <header class="sure-order-content-header flight-out">
+            <h3 class="flight-icon">{{psgName}}&nbsp;<span class="m-l15">{{departureCn}}-{{arrivalCn}}</span></h3>
+        </header>
+        <section class="sure-order-content-cont">
+            <ul class="ticket-info">
+                <li>{{depDate}}  {{depTime}}-{{arrTime}}</li>
+                <li class="fn-clear"><span class="ticket-info-money fn36">&yen;{{ticketPrice}}</span>
+                    {{airWays}} {{airLine}} 波音737(中) | {{seatCode}}</li>
+            </ul>
+        </section>
+    </div>
+</script>
+<!--可报销酒店订单-->
+<script type="text/x-handlebars-template" id="J_HOrderTpl">
+    <div class="sure-order-content sure-icon J_Check">
+        <header class="sure-order-content-header flight-out">
+            <h3 class="hotel-icon">{{orderPerson}}&nbsp;<span class="m-l15">{{hotelName}}</span></h3>
+        </header>
+        <section class="sure-order-content-cont">
+            <ul class="ticket-info">
+                <li>入住：{{realInTime}}-{{realLeaveTime}}  共{{realDays}}晚</li>
+                <li class="fn-clear"><span
+                        class="ticket-info-money fn30">&yen;{{realCash}}</span>&nbsp;&nbsp;{{roomType}}
+                </li>
+                <li>入住人: {{realPerson}}</li>
+            </ul>
+        </section>
+    </div>
+</script>
+<!--报销明细列表（交通  李学文）-->
+<script type="text/x-handlebars-template" id="J_ReimDocTraffic">
+    <div class="info-table-content">
+        <ul class="info-table info-table-row-bdr row-p-lr30">
+            {{#each dataArray}}
+                <li>
+                    <h3 class="info-row">
+                        <span class="info-row-label">出差人：</span>
+                        <span data-trippersonname="{{tripPersonName}}" class="info-row-cont">{{tripPersonName}}（{{mts}}）</span>
+                    </h3>
+                    {{#if map.plane}}
+                        <div class="line-1b-ccc traffic-show-list">
+                            <div class="traffic-show-list-title">{{getMeans map.plane}}：</div>
+                            <ul class="info-table traffic-show-list-content">
+                                {{#each map.plane}}
+                                    <li class="J_Plane">
+                                        <div class="info-row info-row-rowspan info-row-icon-r30">
+                                            <div class="info-row-cont">
+                                                <span class="fn-c-666">{{meansNum}} | {{grade}} </span>
+                                                <span class="fn-c-3571be money-change">
+                                                    <input type="text" class="J_Plane_price ipt-edit w85 fn-c-3571be" value="{{price}}" data-value="{{price}}"/>
+                                                </span>
+                                                <span class="fn-c-666">（{{discount}}）</span>
+                                            </div>
+                                            <div data-id="{{roundTripId}}" class="info-row-right J_ReimDocBtn">
+                                                <span class="btn-close-icon"></span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                    {{/if}}
+                    {{#if map.train}}
+                        <div class="line-1b-ccc traffic-show-list">
+                            <div class="traffic-show-list-title"
+                                 data-traffic="{{getMeans map.train}}">{{getMeans map.train}}：
+                            </div>
+                            <ul class="info-table traffic-show-list-content">
+                                {{#each map.train}}
+                                    <li>
+                                        <div class="info-row info-row-rowspan info-row-icon-r30">
+                                            <div class="J_ReimDocNumber info-row-cont">
+                                                <span data-endcity="{{endCity}}" data-startcity="{{startCity}}" data-price="{{getNumber price}}" class="fn-c-666">{{meansNum}} | {{grade}} </span>&yen;{{price}}
+                                                <span class="fn-c-666">（{{discount}}）</span>
+                                            </div>
+                                            <div data-id="{{roundTripId}}" class="info-row-right J_ReimDocBtn">
+                                                <span class="btn-close-icon"></span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                    {{/if}}
+                    {{#if map.steamship}}
+                        <div class="line-1b-ccc traffic-show-list">
+                            <div class="traffic-show-list-title"
+                                 data-traffic="{{getMeans map.steamship}}">{{getMeans map.steamship}}：
+                            </div>
+                            <ul class="info-table traffic-show-list-content">
+                                {{#each map.steamship}}
+                                    <li>
+                                        <div class="info-row info-row-rowspan info-row-icon-r30">
+                                            <div class="J_ReimDocNumber info-row-cont"><span data-endcity="{{endCity}}"
+                                                                                             data-startcity="{{startCity}}"
+                                                                                             data-price="{{getNumber price}}"
+                                                                                             class="fn-c-666">{{meansNum}}
+                                                | {{grade}} </span>&yen;{{price}}<span class="fn-c-666">（{{discount}}
+                                                ）</span>
+                                            </div>
+                                            <div data-id="{{roundTripId}}" class="info-row-right J_ReimDocBtn">
+                                                <span class="btn-close-icon"></span></div>
+                                        </div>
+                                    </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                    {{/if}}
+                    {{#if map.car}}
+                        <div class="line-1b-ccc traffic-show-list">
+                            <div class="traffic-show-list-title"
+                                 data-traffic="{{getMeans map.car}}">{{getMeans map.car}}：
+                            </div>
+                            <ul class="info-table traffic-show-list-content">
+                                {{#each map.car}}
+                                    <li>
+                                        <div class="info-row info-row-rowspan info-row-icon-r30">
+                                            <div class="J_ReimDocNumber info-row-cont"><span data-endcity="{{endCity}}"
+                                                                                             data-startcity="{{startCity}}"
+                                                                                             data-price="{{getNumber price}}"
+                                                                                             class="fn-c-666">{{meansNum}}
+                                                | {{grade}} </span>&yen;{{getNumber price}}<span class="fn-c-666">（{{discount}}
+                                                ）</span>
+                                            </div>
+                                            <div data-id="{{roundTripId}}" class="info-row-right J_ReimDocBtn"><span
+                                                    class="btn-close-icon"></span></div>
+                                        </div>
+                                    </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                    {{/if}}
+                </li>
+            {{/each}}
+            <!--<li>-->
+                <!--<div  class="info-row fn-c-3571be"><span-->
+                        <!--class="btn-txt btn-add-icon lh89">添加其他交通工具</span></div>-->
+            <!--</li>-->
+        </ul>
+    </div>
+</script>
+
+<!--报销明细（住宿）-->
+<script type="text/x-handlebars-template" id="J_ReimDocQuarterTpl">
+    <div class="info-table-content">
+        <ul class="info-table info-table-row-bdr row-p-lr30">
+            {{#each dataArray}}
+                {{#if idHotelOrder}}
+                    <li class="J_Hotel">
+                        <h3 class="info-row">
+                            <span class="info-row-label">入住人：</span>
+                            <span class="info-row-cont" data-trippersonid="{{inPeopelId}}" data-tripid="{{tripId}}"
+                                  data-idhotelorder="{{idHotelOrder}}">{{inPeopel}}</span>
+                            <div class="info-row-right J_HotelNum" data-triphotelid="{{tripHotelId}}">
+                                <span class="btn-close-icon"></span>
+                            </div>
+                        </h3>
+                        <div class="info-row traffic-show-list">
+                            <span class="info-row-label">日期：</span>
+                            <span class="info-row-cont">
+                                <span>
+                                    <input type="text" value="{{inDay}}" class="w140" readonly>
+                                </span>
+                                <span class="fn-c-666">-</span>
+                                <span>
+                                    <input type="text" value="{{leaveDay}}" class="w140" readonly>
+                                </span>
+                            </span>
+                        </div>
+                        <div class="info-row traffic-show-list">
+                            <span class="info-row-label">金额：</span>
+                             <span class="info-row-cont fn-c-3571be money-change">
+                                <input type="text" class="J_HotelPrice ipt-edit w85 fn-c-3571be" data-value="{{getNumber amount}}" value="{{getNumber amount}}"/>
+                            </span>
+                        </div>
+                    </li>
+                {{else}}
+                    <li class="J_update" data-inday="{{inDay}}" data-leaveday="{{leaveDay}}"
+                        data-hotelcity="{{hotelCity}}" data-amount="{{getNumber amount}}" data-triphotelid="{{tripHotelId}}"
+                        data-issplit="{{isSplit}}" data-inpeopel="{{inPeopel}}" data-inpeopelid="{{inPeopelId}}"
+                        data-tripid="{{tripId}}">
+                        <h3 class="info-row">
+                            <span class="info-row-label">入住人：</span>
+                            <span class="info-row-cont fn-c-3571be">{{inPeopel}}</span>
+                            <div class="info-row-right J_HotelNum" data-triphotelid="{{tripHotelId}}">
+                                <span class="btn-close-icon"></span>
+                            </div>
+                        </h3>
+                        <div class="info-row traffic-show-list">
+                            <span class="info-row-label">日期：</span>
+                            <span class="info-row-cont">
+                                <span class="date-icon">
+                                    <input type="text" value="{{inDay}}" class="w140 fn-c-3571be" readonly>
+                                </span>
+                                <span class="fn-c-666">-</span>
+                                <span class="date-icon">
+                                    <input type="text" value="{{leaveDay}}" class="w140 fn-c-3571be" readonly>
+                                </span>
+                            </span>
+                        </div>
+                        <div class="info-row traffic-show-list">
+                            <span class="info-row-label">金额：</span>
+                            <span class="info-row-cont fn-c-3571be fn36 money-change">{{getNumber amount}}</span>
+                        </div>
+                    </li>
+                {{/if}}
+            {{/each}}
+            <!--<li>-->
+                <!--<div  class="info-row fn-c-3571be"><span class="btn-txt btn-add-icon lh89">添加其他酒店</span>-->
+                <!--</div>-->
+            <!--</li>-->
+        </ul>
+    </div>
+</script>
+
+<!--报销明细（市内交通费）-->
+<script type="text/x-handlebars-template" id="J_ReimDocTrafficFell">
+    <div class="info-table-content">
+        <ul id="J_reimDoctraffic" class="info-table info-table-row-bdr row-p-lr30">
+            {{#each dataArray}}
+                <li>
+                    <div class="info-row">
+                        <span class="info-row-label">出差人：</span>
+                        <span class="info-row-cont">{{tripPersonName}}（{{mts}}）</span>
+                        <span class="info-row-right fn-c-3571be money-change">
+                            <input type="text" value="{{getNumber trafficAmount}}" data-value="{{getNumber trafficAmount}}" data-tripid="{{tripId}}"
+                                   data-trippersonid="{{tripPersonId}}" class="J_TripCityAmount ipt-edit w85 fn-c-3571be"/>
+                        </span>
+                    </div>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+</script>
+
+<!--报销明细（补助）-->
+<script type="text/x-handlebars-template" id="J_ReimDocSubsidy">
+    <div class="info-table-content">
+        <ul id="J_reimDocSub" class="info-table info-table-row-bdr row-p-lr30">
+            {{#each dataArray}}
+                <li>
+                    <div class="info-row">
+                        <span class="info-row-label">出差人：</span>
+                        <span class="info-row-cont">{{tripPersonName}}
+                            <span class="m-l10 fn-c-3571be">&yen;{{getNumber allowance}}
+                                /天x
+                                <input type="text" class="J_ReimCount ipt-edit w45 fn-c-3571be"
+                                       value={{tripDays}} data-money="{{getNumber allowance}}" data-price="{{price}}"
+                                       data-tripid="{{tripId}}" data-trippersonid="{{tripPersonId}}">
+                            </span>
+                        </span>
+                        <span class="info-row-right fn-c-ff3200">&yen;<span
+                                class="J_price">{{getPrice allowance tripDays}}</span></span>
+                    </div>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+</script>
+
+<!--报销明细（李学文）-->
+<script type="text/x-handlebars-template" id="J_ReimDocTemplate">
+    <div id="J_ReimDocTraf" class="info-content">
+        <h2>
+            <span id="J_AddVehicle" class="fn-right btn-add-h2 btn-txt btn-add-icon"></span>
+            <span class="fn-right camera-icon"></span>交通</h2>
+    </div>
+    <div id="J_ReimDocQter" class="info-content">
+        <h2>
+            <span id="J_AddHotel" class="fn-right btn-add-h2 btn-txt btn-add-icon"></span>
+            <span class="fn-right camera-icon"></span>住宿</h2>
+    </div>
+    <div id="J_ReimDocTrafFell" class="info-content">
+        <h2>市内交通费</h2>
+    </div>
+    <div id="J_ReimDocSubst" class="info-content">
+        <h2>补助</h2>
+    </div>
+    <div id="J_ReimDocPage" class="fn-hide">
+        <div class="info-content">
+            <h2 id="J_ReimDocOther"><span class="fn-right arrow-down-icon-clr999"></span>其他</h2>
+
+            <div id="J_ReimDocOtherContent" class="info-table-content fn-hide">
+                <ul class="info-table info-table-row-bdr row-p-lr30">
+                    <li>
+                        <div class="info-row">
+                            <span class="info-row-label">费用<br>说明：</span><span class="info-row-cont"><textarea
+                                placeholder="20字以内"></textarea></span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="info-row">
+                            <span class="info-row-label">金额：</span>
+                            <span class="info-row-cont"><input type="text" id="J_OtherAmount" placeholder="输入金额" value="0"></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="J_discription" class="fn-hide info-table-content">
+            <ul class="info-table info-table-row-bdr row-p-lr30">
+                <li>
+                    <div class="info-row">
+                        <span class="info-row-label">超标<br>项目：</span><span class="info-row-cont">
+
+                        </span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="info-content fn-hide" id="J_overproof">
+            <h2><span class="error-txt error-txt-icon">有项目超标，请录入超标说明或更改金额</span></h2>
+            <div class="info-table-content">
+                <ul class="info-table info-table-row-bdr row-p-lr30">
+                    <li>
+                        <div class="info-row">
+                            <span class="info-row-label">超标<br>说明：</span><span class="info-row-cont"><textarea
+                                placeholder="20字以内"></textarea></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="counter-money">合计：<span class="fn-c-ff3200" id="J_TotalAmount"></span></div>
+        <div id="J_BlackUser" class="error-layout fn-hide">
+            <div class="error-layout-content">
+                <p class="error-txt-fff error-txt-icon-fff"></p>
+            </div>
+        </div>
+        <div class="content-footer">
+            <span id="ReimBtnfff" class="btn-css btn-c-fff">保存草稿</span>
+            <span id="ReimBtncss" class="btn-css m-l30">生成报销单</span>
+        </div>
+    </div>
+    <div id="J-tipMash" class="fn-hide">
+        <div class="p-tip-mash"></div>
+        <div class="p-tip-layout">
+            <div class="tip-layout-bg1"></div>
+            <div class="tip-layout-bg2">
+                <header class="tip-layout-header"><h2>选择审批链</h2></header>
+                <section class="tip-layout-content p-tal">
+                <ul class="tip-layout-content-list" id="J_ShenpiContent">
+
+                </ul>
+                </section>
+                <footer class="tip-layout-footer">
+                    <span class="tip-btn" id="J_ButtonHide">取消</span>
+                    <span class="tip-btn fn-c-ff4700" id="J_ButtonGo">继续</span>
+                </footer>
+            </div>
+        </div>
+    </div>
+</script>
+
+<!--申请成功-->
+<script type="text/x-handlebars-template" id="J_ReimDocSuccess">
+    <section id="content">
+        <div class="success-prompt">
+            <div class="success-prompt-txt">
+                <h2>报销单已提交等待审批！</h2>
+
+                <p class="m-tb15">审批人：{{approvePerson}}</p>
+
+                <p>审批通过后将在2个小时内打款，请尽快提交纸质免单进行扫描匹配。</p>
+            </div>
+            <div id="J_ReimToDetail" class="info-content">
+                <div class="info-table-content">
+                    <ul class="info-table row-p-lr30 info-row-c-3571be row-label-w145">
+                        <li>
+                            <div class ="info-row">
+                                <span class="info-row-label">报销金额：</span><span class="info-row-cont">&yen;{{getNumber allAmount}}</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="info-row">
+                                <span class="info-row-label">收款人：</span><span
+                                    class="info-row-cont arrow-right-icon">{{payName}}</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="info-row">
+                                <span class="info-row-label">提交日期：</span><span
+                                    class="info-row-cont">{{submitDate}}</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="content-footer"><span id="J_BackHeader" class="btn-css">返回首页</span><span id="J_ContinueReim" class="btn-css m-l30">继续报销</span></div>
+    </section>
+</script>
+
+<!--(从添加交通工具进入交通工具)-->
+<script type="text/x-handlebars-template" id="J_AddTrafficTpl">
+    <section id="content">
+        {{#each dataArray}}
+            <div class="info-content info-content-nobdr m-b20 switch-h3-icon">
+                <h3 class="J_TrafficSelect row-label-w145 sleTraffic">
+                    <span class="J_A info-row-label" data-trippersonid="{{tripPersonId}}"
+                          data-tripid="{{tripId}}">出差人:</span>
+                    <span class="info-row-cont">{{tripPersonName}}</span>
+                </h3>
+
+                <div class="info-table-content fn-hide">
+                    <ul class="info-table info-table-row-bdr row-p-lr30 row-label-w145">
+                        <li>
+                            <div class="info-row ">
+                                <span class="info-row-label traffic-lab">交通工具：</span>
+						        <span class="info-row-cont">
+							        <div class="select-traffic">
+                                        <label class="J_B ipt-rdo-label">
+                                            <input type="radio" name="traffic" class="ipt-rdo fn-hide"/>火车</label>
+                                        <label class="J_B ipt-rdo-label">
+                                            <input type="radio" name="traffic" class="ipt-rdo fn-hide"/>轮船</label>
+                                        <label class="J_B ipt-rdo-label">
+                                            <input type="radio" name="traffic" class="ipt-rdo fn-hide"/>大巴</label>
+                                    </div>
+						        </span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="info-row">
+                                <span class="info-row-label">价格：</span>
+                            <span class="J_C info-row-cont">
+						        <input class="J-Price" type="text" placeholder="填写价格">
+						    </span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="info-row">
+                                <span class="info-row-label traffic-lab">出差城市：</span>
+                            <span class="info-row-cont">
+                                <span data="d" class="J_D fn-c-3571be select-city">深圳</span>
+                                <span class="fn-c-666">-</span>
+                                <span data="e" class="J_E fn-c-3571be select-city">北京</span>
+                            </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        {{/each}}
+        <div class="content-footer" id="J_addTraffic_submit"><span class="btn-css">确定</span></div>
+    </section>
+</script>
+<!--（从修改数据进入添加交通工具）-->
+<script type="text/x-handlebars-template" id="J_UpdateTrafficTpl">
+    <section id="content">
+        <div class="info-content info-content-nobdr m-b20 switch-h3-icon">
+            <h3 class="row-label-w145 sleTraffic">
+                <span class="info-row-label">出差人:</span>
+                <span class="info-row-cont">{{tripPersonName}}</span>
+            </h3>
+
+            <div class="info-table-content fn-hide" id="traffic-content">
+                <ul class="info-table info-table-row-bdr row-p-lr30 row-label-w145">
+                    <li>
+                        <div class="info-row ">
+                            <span class="info-row-label traffic-lab">交通工具：</span>
+						    <span class="info-row-cont">
+							    <div class="select-traffic">
+                                    <label id="J_selectTrain" class="ipt-rdo-label">
+                                        <input type="radio" name="" class="ipt-rdo fn-hide"/>火车</label>
+                                    <label id="J_selectSteamship" class="ipt-rdo-label">
+                                        <input type="radio" name="" class="ipt-rdo fn-hide"/>轮船</label>
+                                    <label id="J_selectCar" class="ipt-rdo-label">
+                                        <input type="radio" name="" class="ipt-rdo fn-hide"/>大巴</label>
+                                </div>
+						    </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="info-row">
+                            <span class="info-row-label">价格：</span>
+                            <span class="info-row-cont">
+						        <input id="J_price" type="text" value="{{price}}">
+						    </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="info-row">
+                            <span class="info-row-label traffic-lab">出差城市：</span>
+                            <span class="info-row-cont">
+                                <span class="fn-c-3571be select-city" id="J_StartCity">{{startCity}}</span>
+                                <span class="fn-c-666">-</span>
+                                <span class="fn-c-3571be select-city" id="J_EndCity">{{endCity}}</span>
+                            </span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="content-footer" data-roundtripid="{{roundTripId}}" id="J_updateTraffic_submit"><span
+                class="btn-css">确定</span></div>
+    </section>
+</script>
+<!--添加酒店(从添加酒店进入)-->
+<script type="text/x-handlebars-template" id="J_AddHotelTpl">
+    <section id="content">
+        <div class="info-content">
+            <h3 class="h97 row-label-w145">
+                <span class="info-row-label">出差人:</span>
+                <span id="J_addHotelEvection" class="J_ReimName info-row-cont"></span>
+            </h3>
+
+            <div class="info-table-content">
+                <ul class="info-table info-table-row-bdr row-p-lr30 info-row-c-3571be row-label-w145">
+                    <li>
+                        <div class="info-row">
+                            <span class="info-row-label">时间：</span>
+                            <span class="info-row-cont">
+                                <span class="date-icon">
+                                    <input id="J_StartDate" type="text" value="2013-12-10" class="w140 fn-c-3571be" readonly>
+                                </span>
+                                <span class="fn-c-666">-</span>
+                                <span class="date-icon">
+                                    <input id="J_EndDate" type="text" value="2013-12-11" class="w140 fn-c-3571be" readonly>
+                                </span>
+                            </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="info-row">
+                            <span class="info-row-label">出差城市：</span>
+                            <span class="info-row-cont " id="select-hotel">长沙</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="info-row">
+                            <span class="info-row-label">价格：</span>
+                            <span class="info-row-cont">
+                                <input type="text" id="select-price" placeholder="填写价格">
+                            </span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="content-footer" id="hotel-submit">
+            <span class="btn-css">确定</span>
+        </div>
+    </section>
+</script>
+<!--添加酒店（从修改进入添加酒店）-->
+<script type="text/x-handlebars-template" id="J_UpdateHotelTpl">
+    <section id="content">
+        <div class="info-content">
+            <h3 class="h97 row-label-w145">
+                <span class="info-row-label">出差人:</span>
+                <span id="J_UpdateEvection" data-triphotelid="{{tripHotelId}}" class="J_ReimName info-row-cont"
+                      data-inpeopelid="{{inPeopelId}}">{{inPeopel}}</span>
+            </h3>
+
+            <div class="info-table-content">
+                <ul class="info-table info-table-row-bdr row-p-lr30 info-row-c-3571be row-label-w145">
+                    <li>
+                        <div class="info-row">
+                            <span class="info-row-label">时间：</span>
+                            <span class="info-row-cont">
+                                <span class="date-icon">
+                                    <input id="J_inDay" type="text" value="{{inDay}}" class="w140 fn-c-3571be" readonly>
+                                </span>
+                                <span class="fn-c-666">-</span>
+                                <span class="date-icon">
+                                    <input id="J_leaveDay" type="text" value="{{leaveDay}}" class="w140 fn-c-3571be" readonly>
+                                </span>
+                            </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="info-row">
+                            <span class="info-row-label">出差城市：</span>
+                            <span class="info-row-cont " id="select-hotelCy">{{hotelCity}}</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="info-row">
+                            <span class="info-row-label">价格：</span>
+                            <span class="info-row-cont">
+                                <input type="text" id="priceName" placeholder="填写价格" value="{{amount}}">
+                            </span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="content-footer" id="update-submit">
+            <span class="btn-css">确定</span>
+        </div>
+    </section>
+</script>
+
+<!--从添加酒店进入出差人进行选择-->
+<script type="text/x-handlebars-template" id="J_ReimDocEvectionTpl">
+    <section id="content">
+        <div class="info-content info-content-nobdr">
+            <ul id="J_ReimEvection" class="info-content-list">
+                {{#each dataArray}}
+                    <li>
+                        <h3 class="J_Evection">
+                            <span data-trippersonids="{{tripPersonIds}}" class="info-row-cont">{{inPeopel}}</span>
+                        <span class="info-row-right change-sure-icon">
+                            <figure class="J_EvectionTarget sure-icon"></figure>
+                        </span>
+                        </h3>
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="content-footer" id="J_evection_submit">
+            <span class="btn-css">确定</span>
+        </div>
+    </section>
+</script>
+

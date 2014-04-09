@@ -1,0 +1,64 @@
+{"flag": true, "message": "查询成功！", "result": {
+    "listAll": [
+        {
+            "payId": 1,
+            "source": null,
+            "sourceI": null,
+            "payStatus": "pay_success",
+            "amount": 888,
+            "account": "EX-Zhongyubin",
+            "accountType": null,
+            "payType": null,
+            "payChanne": null,
+            "accountName": null,
+            "payTime": null,
+            "payDate": "2013.12.25",
+            "createDate": "2013.12.11"
+        },
+        {
+            "payId": 2,
+            "source": null,
+            "sourceI": null,
+            "payStatus": "pay_success",
+            "amount": 666,
+            "account": "EX-Zhongyubin",
+            "accountType": null,
+            "payType": null,
+            "payChanne": null,
+            "accountName": null,
+            "payTime": "null",
+            "payDate": "2013.12.26",
+            "createDate": "2013.12.11"
+        },
+        {
+            "payId": 3,
+            "source": null,
+            "sourceI": null,
+            "payStatus": "paying",
+            "amount": 777,
+            "account": "EX-Zhongyubin",
+            "accountType": null,
+            "payType": null,
+            "payChanne": null,
+            "accountName": null,
+            "payTime": "已逾期1天",
+            "payDate": "2013.12.26",
+            "createDate": "2013.12.11"
+        },
+        {
+            "payId": 1,
+            "source": null,
+            "sourceI": null,
+            "payStatus": "prepay",
+            "amount": 999,
+            "account": "EX-Zhongyubin",
+            "accountType": null,
+            "payType": null,
+            "payChanne": null,
+            "accountName": null,
+            "payTime": "剩余2天",
+            "payDate": "2013.12.25",
+            "createDate": "2013.12.11"
+        }
+    ]
+}}

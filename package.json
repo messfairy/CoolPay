@@ -1,0 +1,35 @@
+{
+    "name": "CoolPay",
+    "description": "CoolPay",
+    "author": {
+        "name": "messfairy",
+        "url": "http://messfairy.com/"
+    },
+    "homepage": "http://gruntjs.com/",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/messfairy/CoolPay.git"
+    },
+
+    "main": "lib/grunt",
+    "scripts": {
+        "test": "grunt test"
+    },
+    "engines": {
+        "node": ">= 0.8.0"
+    },
+    "keywords": [],
+    "dependencies": {
+        "grunt":"0.4.4",
+        "grunt-jsmin-sourcemap": "1.10.0"
+    },
+    "devDependencies": {
+        "temporary": "~0.0.4",
+        "grunt-contrib-jshint": "~0.6.4",
+        "grunt-contrib-nodeunit": "~0.2.0",
+        "grunt-contrib-watch": "~0.5.3"
+    },
+    "readmeFilename": "README.md",
+    "_id": "CoolPay@0.4.4",
+    "_from": "CoolPay@"
+}

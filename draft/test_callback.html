@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>test_callback</title>
+</head>
+<body>
+<ul>
+    <li>test_callback</li>
+    <li>test_callback</li>
+    <li>test_callback</li>
+    <li>test_callback</li>
+    <li>test_callback</li>
+    <button id="test_callback">iframe中同域操纵js跳转home</button>
+</ul>
+<script>
+    window.onload=function(){
+        var pWin = this.parent;
+        document.getElementById('test_callback').onclick = testNaviHome;
+        function testNaviHome(){
+            var router = pWin.appRouter;
+            pWin.appRouter.navigate('home/sick', true);
+        }
+    }
+</script>
+</body>
+</html>

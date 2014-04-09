@@ -1,0 +1,101 @@
+{"flag": true, "message": "查询成功！", "result": {
+    "List": [
+        {
+            "allowance": 200,
+            "createdBy": null,
+            "dateCreated": null,
+            "dateUpdated": null,
+            "listInfo": null,
+            "listMeans": null,
+            "map": {},
+            "mts": "C类及以下",
+            "tripDays": null,
+            "tripId": 2958,
+            "tripPersonId": "EF8461F4D744012BE0440018FE2DA14D",
+            "tripPersonName": "王志成",
+            "tripPersonUm": "WANGZHICHENG540",
+            "tripPersono": null,
+            "updatedBy": null
+        },
+        {
+            "allowance": 100,
+            "createdBy": null,
+            "dateCreated": null,
+            "dateUpdated": null,
+            "listInfo": null,
+            "listMeans": null,
+            "map": {},
+            "mts": "其他人员",
+            "tripDays": null,
+            "tripId": 2958,
+            "tripPersonId": "EF8454118B0109D0E0440018FE2DA14D",
+            "tripPersonName": "郑新良",
+            "tripPersonUm": "ZHENGXINLIANG001",
+            "tripPersono": null,
+            "updatedBy": null
+        }
+    ],
+    "allAmounts": 0,
+    "allPrice": "119100",
+    "blackUser": {
+        "p_err_msg": "该用户不是黑名单。",
+        "p_flag": "Y"
+    },
+    "listCityTraffic": [],
+    "listSubsidy": [],
+    "other": {
+        "amount": 0,
+        "amountName": null,
+        "createdBy": null,
+        "dateCreated": null,
+        "dateUpdated": null,
+        "mts": null,
+        "otherStandard": 0,
+        "overAmount": 0,
+        "remark": null,
+        "tripId": 2958,
+        "tripOtherCostInfoId": "EF8461F4D743012BE0440018FE2DA14D",
+        "tripPersonId": null,
+        "tripPersonName": null,
+        "tripPersonUm": null,
+        "updatedBy": null
+    },
+    "perList": [
+        {
+            "allowance": 200,
+            "createdBy": null,
+            "dateCreated": null,
+            "dateUpdated": null,
+            "listInfo": null,
+            "listMeans": null,
+            "map": null,
+            "mts": "C类及以下",
+            "tripDays": "397",
+            "tripId": null,
+            "tripPersonId": "EF8461F4D744012BE0440018FE2DA14D",
+            "tripPersonName": "王志成",
+            "tripPersonUm": "WANGZHICHENG540",
+            "tripPersono": null,
+            "updatedBy": null
+        },
+        {
+            "allowance": 100,
+            "createdBy": null,
+            "dateCreated": null,
+            "dateUpdated": null,
+            "listInfo": null,
+            "listMeans": null,
+            "map": null,
+            "mts": "其他人员",
+            "tripDays": "397",
+            "tripId": null,
+            "tripPersonId": "EF8454118B0109D0E0440018FE2DA14D",
+            "tripPersonName": "郑新良",
+            "tripPersonUm": "ZHENGXINLIANG001",
+            "tripPersono": null,
+            "updatedBy": null
+        }
+    ],
+    "superscale": "",
+    "tripHotelList": []
+}}

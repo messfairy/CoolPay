@@ -1,0 +1,312 @@
+<!--审批链(彬)-->
+<script type="text/x-handlebars-template" id="J_ShenpiTpl">
+    <li><label class="J_Shenpi ipt-rdo-label" data-deptbudgeteer="{{deptBudgeteer}}"
+               data-approvechainid="{{approveChainId}}" data-deptbudgeteerum="{{deptBudgeteerUM}}">
+        <input type="radio" name="" class="ipt-rdo fn-hide">
+        {{getDeptPrincipal deptPrincipal}}{{getFilialeManager filialeManager}}{{getPrincipal principal}}{{getFinancialPrincipal financialPrincipal}}{{getChName chName}}{{deptBudgeteer}}
+    </label></li>
+</script>
+
+<script type="text/x-handlebars-template" id="J_ReimSearchTpl">
+    <div class="filter-table">
+        <header class="filter-table-thead">
+            <ul>
+                <li>提交日期</li>
+                <li>收款人</li>
+                <li>金额</li>
+                <li>状态</li>
+            </ul>
+        </header>
+        <section class="filter-table-tbody int30-table-tbody">
+            <ul class="filter-table-tr-list" id="J_SearchContent">
+            </ul>
+            <!--todo-->
+            <div style="display:none;text-align:center;font-size:28px;" id="loadMore">
+                点击加载更多
+            </div>
+            <div style="display:none;text-align:center;font-size:28px;" id="loadMore-1">
+                点击加载更多
+            </div>
+        </section>
+    </div>
+    </section>
+</script>
+
+<!--查询提交报销详情(彬) -->
+<script type="text/x-handlebars-template" id="J_StateSearhTpl">
+    <li class="arrow-right-icon" id="J_Right" data-value="{{tripId}}">
+        <div class="filter-table-td">{{infoTime}}</div>
+        <div class="filter-table-td">{{payeName}}</div>
+        <div class="filter-table-td">{{allAmount}}</div>
+        <div class="filter-table-td J_Filter">{{getTripStatus tripStatus}}</div>
+    </li>
+</script>
+
+<!--报销单筛选(彬)-->
+<script type="text/x-handlebars-template" id="J_BxQueryTpl">
+    <div class="info-content">
+        <div class="info-table-content">
+            <ul class="info-table info-table-row-bdr row-p-lr30">
+                <li>
+                    <div class="info-row" id="J_QueryTime">
+                        <div class="info-row-label">时间：</div>
+                        <div class="info-row-cont"><span class="date-icon"><input id="J_StartDate" type="text"
+                                                                                  value="2013-12-10"
+                                                                                  class="w140 fn-c-3571be"></span> <span
+                                class="fn-c-666">-</span> <span class="date-icon"><input id="J_EndDate" type="text"
+                                                                                         value="2013-12-31"
+                                                                                         class="w140 fn-c-3571be"></span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="info-row info-row-r30" id="J_QueryState">
+                        <div class="info-row-label">类型：</div>
+                        <div class="info-row-cont fn-c-3571be arrow-right-icon" id="J_StateValue">被退回，待交单，支付失败，已支付</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="info-row info-row-r30" id="J_QueryPayNname">
+                        <div class="info-row-label">收款人：</div>
+                        <div class="info-row-cont arrow-right-icon fn-c-3571be" id="J_PayNameValue">请选择</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="content-footer"><span class="btn-css" id="J_Submit">确定</span></div>
+</script>
+<!--筛选(类型筛选)-->
+<script type="text/x-handlebars-template" id="J_ReimStatesTpl">
+    <div class="info-content m-b20">
+        <div class="info-table-content">
+            <ul class="info-table info-table-row-bdr row-p-lr30" id="J_infoContent">
+                <div id="j_Allselect">
+                    <h3><span class="info-row-cont">不限</span><span
+                            class="info-row-right change-sure-icon"><figure class="sure-icon"
+                                                                            id="J_Target"></figure></span></h3>
+                </div>
+                <li>
+                    <h3 class="J_Evection"><span class="info-row-cont j_StateSeclet"
+                                                 data-value="INCOMPLETE">已保存</span><span
+                            class="info-row-right change-sure-icon"><figure class="sure-icon J_EvectionTarget"></figure></span>
+                    </h3>
+                </li>
+                <li>
+                    <h3 class="J_Evection"><span class="info-row-cont j_StateSeclet"
+                                                 data-value="COMPLETED">完成</span><span
+                            class="info-row-right change-sure-icon"><figure class="sure-icon J_EvectionTarget"></figure></span>
+                    </h3>
+                </li>
+                <li>
+                    <h3 class="J_Evection"><span class="info-row-cont j_StateSeclet"
+                                                 data-value="PAY_SUCCESS">支付成功</span><span
+                            class="info-row-right change-sure-icon"><figure class="sure-icon J_EvectionTarget"></figure></span>
+                    </h3>
+                </li>
+                <li>
+                    <h3 class="J_Evection"><span class="info-row-cont j_StateSeclet" data-value="PAY_FAILED">支付失败</span><span
+                            class="info-row-right change-sure-icon"><figure class="sure-icon J_EvectionTarget"></figure></span>
+                    </h3>
+                </li>
+                <li>
+                    <h3 class="J_Evection"><span class="info-row-cont j_StateSeclet" data-value="PAYING">待支付</span><span
+                            class="info-row-right change-sure-icon"><figure class="sure-icon J_EvectionTarget"></figure></span>
+                    </h3>
+                </li>
+                <li>
+                    <h3 class="J_Evection"><span class="info-row-cont j_StateSeclet"
+                                                 data-value="EOA_APPROVING">待领导审批</span><span
+                            class="info-row-right change-sure-icon"><figure class="sure-icon J_EvectionTarget"></figure></span>
+                    </h3>
+                </li>
+                <li>
+                    <h3 class="J_Evection"><span class="info-row-cont j_StateSeclet"
+                                                 data-value="EOA_REJECTED">领导审批退回</span><span
+                            class="info-row-right change-sure-icon"><figure class="sure-icon J_EvectionTarget"></figure></span>
+                    </h3>
+                </li>
+                <li>
+                    <h3 class="J_Evection"><span class="info-row-cont j_StateSeclet"
+                                                 data-value="PREPROCESS">待部门预算员审批</span><span
+                            class="info-row-right change-sure-icon"><figure class="sure-icon J_EvectionTarget"></figure></span>
+                    </h3>
+                </li>
+                <li>
+                    <h3 class="J_Evection"><span class="info-row-cont j_StateSeclet" data-value="BUDGET_REJECTED">部门预算员退回</span><span
+                            class="info-row-right change-sure-icon"><figure class="sure-icon J_EvectionTarget"></figure></span>
+                    </h3>
+                </li>
+                <li>
+                    <h3 class="J_Evection"><span class="info-row-cont j_StateSeclet"
+                                                 data-value="INPROCESS">待匹配扫描影像</span><span
+                            class="info-row-right change-sure-icon"><figure class="sure-icon J_EvectionTarget"></figure></span>
+                    </h3>
+                </li>
+                <li>
+                    <h3 class="J_Evection"><span class="info-row-cont j_StateSeclet"
+                                                 data-value="CENTER_APPROVING">中心作业中</span><span
+                            class="info-row-right change-sure-icon"><figure class="sure-icon J_EvectionTarget"></figure></span>
+                    </h3>
+                </li>
+                <li>
+                    <h3 class="J_Evection"><span class="info-row-cont j_StateSeclet"
+                                                 data-value="REJECTED">中心退回</span><span
+                            class="info-row-right change-sure-icon"><figure class="sure-icon J_EvectionTarget"></figure></span>
+                    </h3>
+                </li>
+                <li>
+                    <h3 class="J_Evection"><span class="info-row-cont j_StateSeclet"
+                                                 data-value="PAY_BACK">待员工还款</span><span
+                            class="info-row-right change-sure-icon"><figure class="sure-icon J_EvectionTarget"></figure></span>
+                    </h3>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="content-footer" id="J_evection_submit">
+        <span class="btn-css">确定</span>
+    </div>
+</script>
+<!-- 筛选content（彬） -->
+<script type="text/x-handlebars-template" id="J_RQueryContentTpl">
+    <div class="info-content m-b20">
+        <div class="info-table-content">
+            <ul class="info-table info-table-row-bdr row-p-lr30" id="J_infoContent">
+
+            </ul>
+            <div style="display:none;text-align:center;font-size:28px;" id="getMore">
+                点击加载更多
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/x-handlebars-template" id="J_PayeeTemplate">
+        {{#each thdList}}
+        <li>
+        <div class="info-row">
+                <span class="info-row-cont J_NameSeclet" data-value="{{this}}">{{this}}</span>
+        </div>
+        </li>
+        {{/each}}
+</script>
+
+
+<!--选择城市-->
+<script type="text/x-handlebars-template" id="J_SelectCityTpl">
+    <section id="content">
+        <div id="search-layout">
+            <div class="search-content">
+                <input type="text" class="search-ipt" placeholder="北京/beijing" autocapitalize="off"/>
+            </div>
+        </div>
+        <div class="filter-operate city-filter-operate">
+            <div class="filter-btn">国内城市</div>
+            <div class="filter-btn filter-sort filter-btn-cur">国际城市</div>
+        </div>
+        <div class="fast-city-select">
+            <div class="layout-relative">
+                <div class="letter-find">
+                    <div class="letter-find-bg hover"></div>
+                    <ul class="letter-find-list">
+                        <li>A</li>
+                        <li>B</li>
+                        <li>C</li>
+                        <li>D</li>
+                        <li>E</li>
+                        <li>F</li>
+                        <li>G</li>
+                        <li>H</li>
+                        <li>I</li>
+                        <li>J</li>
+                        <li>K</li>
+                        <li>L</li>
+                        <li>M</li>
+                        <li>O</li>
+                        <li>P</li>
+                        <li>Q</li>
+                        <li>R</li>
+                        <li>S</li>
+                        <li>T</li>
+                        <li>U</li>
+                        <li>V</li>
+                        <li>W</li>
+                        <li>X</li>
+                        <li>Y</li>
+                        <li>Z</li>
+                        <li>#</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="info-content line-1t-aaa">
+                <h2>当前城市</h2>
+
+                <div class="info-table-content line-1t-aaa">
+                    <ul class="info-table info-table-row-bdr row-p-lr30">
+                        <li class="city-selected">
+                            <div class="info-row">
+                                <span class="info-row-cont">深圳</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="info-content">
+                <h2>历史选择</h2>
+
+                <div class="info-table-content line-1t-aaa">
+                    <ul class="info-table info-table-row-bdr row-p-lr30">
+                        <li class="city-selected">
+                            <div class="info-row">
+                                <span class="info-row-cont">深圳</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="info-content clear-bottom-line">
+                <h2>热门</h2>
+
+                <div class="info-table-content int30-info-content" id="city">
+                    <ul class="info-table info-table-row-bdr">
+                        <li>
+                            <div class="info-row">
+                                <span class="info-row-cont citying">北京</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="info-row">
+                                <span class="info-row-cont citying">上海</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="info-row">
+                                <span class="info-row-cont citying">广州</span>
+                            </div>
+                        </li>
+                        <li class="city-selected">
+                            <div class="info-row">
+                                <span class="info-row-cont citying">深圳</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="info-row">
+                                <span class="info-row-cont citying">香港</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="info-row">
+                                <span class="info-row-cont citying">成都</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="info-row">
+                                <span class="info-row-cont citying">杭州</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</script>

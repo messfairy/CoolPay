@@ -1,0 +1,13 @@
+{
+    "family": "paic",
+    "name": "CoolPay",
+    "version": "1.0.0",
+
+    "spm": {
+        "source": ["view", "model", "router"],
+        "output": ["view.js", "model.js", "router.js"],
+        "alias": {
+            "$": "zepto"
+        }
+    }
+}

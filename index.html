@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="description" content="中国平安"/>
+    <meta name="keywords" content="中国平安"/>
+    <meta content="width=640, target-densitydpi=320, user-scalable=no" name="viewport"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <!--组件-->
+    <link href="css/datepicker/mobiscroll.scroller.css" rel="stylesheet"/>
+    <link href="css/datepicker/mobiscroll.scroller.android.css" rel="stylesheet"/>
+    <link href="css/datepicker/mobiscroll.scroller.android-ics.css" rel="stylesheet"/>
+    <link href="css/datepicker/mobiscroll.scroller.ios.css" rel="stylesheet"/>
+    <link href="css/datepicker/mobiscroll.scroller.ios7.css" rel="stylesheet"/>
+    <link href="css/datepicker/mobiscroll.scroller.sense-ui.css" rel="stylesheet"/>
+    <link href="css/datepicker/mobiscroll.scroller.wp.css" rel="stylesheet"/>
+    <link href="css/datepicker/mobiscroll.animation.css" rel="stylesheet"/>
+    <!--自定义-->
+    <link rel="stylesheet" href="inc/base.css">
+    <link rel="stylesheet" href="inc/public.css">
+    <style>
+        .ease-left-class {
+            -webkit-transition : left .1s ease-in;
+            -webkit-transform : translate3d(0, 0, 0);
+            -webkit-backface-visibility : hidden;
+            -webkit-perspective :1000
+        }
+        .ease-right-class {
+            -webkit-transition : right .1s ease-in;
+            -webkit-transform : translate3d(0, 0, 0);
+            -webkit-backface-visibility : hidden;
+            -webkit-perspective : 1000
+        }
+        .screen-col1,.screen-col2{position:absolute;left:0;top:0;width: 100%;height:100%;z-index:1;
+            -webkit-box-sizing:border-box;box-sizing:border-box;overflow-x:hidden;overflow-y:auto;}
+        .J_LoadMore{
+            font-size: 28px;
+            text-align: center;
+            color: #3571be;
+        }
+    </style>
+</head>
+<body>
+<div id="warp">
+    <header id="top-bar"></header>
+    <section id="J_Container"></section>
+    <section id="J_ShareContainer" class="fn-hide"></section>
+</div>
+<!--web app入口 seajs把所有require语句提取出来优先执行-->
+<script src="sea-modules/seajs/seajs/2.2.1/sea.js"></script>
+<script>
+    seajs.config({
+        base: "./sea-modules/",
+        alias: {
+            'zepto': 'lib/zepto',
+            'selector': 'lib/selector', //zepto选择器
+            'callbacks': 'lib/callbacks',
+            'deferred': 'lib/deferred',
+            'ajax': 'lib/ajax',
+            'touch': 'lib/touch',
+            'iScroll': 'lib/iScroll',
+            'underscore': 'lib/underscore',
+            'backbone': 'lib/backbone',
+            'localStorage': 'lib/backbone.localStorage',
+            'seajs-text': 'lib/seajs-text', //模板加载器
+            'handlebars': 'lib/handlebars', //模板引擎
+            'xdate': 'lib/xdate',
+
+            //datepicker
+            'zepto-scroll': 'common/mobiscroll.zepto',
+            'scroller': 'common/mobiscroll.scroller',
+            'datetime': 'common/mobiscroll.datetime',
+            'select': 'common/mobiscroll.select',
+            'themes-zhCN': '/common/mobiscroll.themes-zhCN'
+        },
+        map: [
+            [ /^(.*\/mobile\/.*\.(?:css|js))(?:.*)$/i, '$1?20131216194' ]
+        ],
+        preload: ['zepto', 'seajs-text', 'backbone']
+    });
+    seajs.use(['./app']);
+</script>
+</body>
+</html>

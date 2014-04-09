@@ -1,0 +1,270 @@
+<!--报销单头信息（展）-->
+<script type="text/x-handlebars-template" id="J_ReimDocHeadTpl">
+    <section id="J_ReimDocHead">
+        <div class="info-content m-b20">
+            <div class="info-table-content">
+                <ul class="info-table info-table-row-bdr row-p-lr30 info-row-c-3571be">
+                    <li>
+                        <div class="info-row" id="J_SelectPayee">
+                            <span class="info-row-label">收款人：</span>
+                            <span class="info-row-cont arrow-right-icon" id="J_PayeeValue">{{tdto.payeName}} ({{tdto.payeeUm}})(支付帐号 {{tdto.payeeENo}})</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="info-row" id="J_SelectBookset"><!--帐套公司-->
+                            <span class="info-row-label">入账单位：</span><span class="info-row-cont arrow-right-icon" id="J_BooksetValue">{{#if tdto.sobId}}{{tdto.sobDesc}} {{tdto.orgName}}{{else}}请选择{{/if}}</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="info-row" id="J_SelectDep">
+                            <span class="info-row-label">部门：</span><span class="info-row-cont arrow-right-icon" id="J_DepValue">{{#if tdto.segment3}}{{tdto.segment3Desc}}{{else}}请选择{{/if}}</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="info-content m-b20">
+            <div class="info-table-content">
+                <ul class="info-table info-table-row-bdr row-p-lr30 info-row-c-3571be">
+                    <li>
+                        <div class="info-row" id="J_SelectTraveller">
+                            <span class="info-row-label">出差人：</span>
+                            <span class="info-row-cont arrow-right-icon" id="J_TravellerValue">{{#each perList}}{{tripPersonName}}({{#if mts}}{{mts}}{{else}}请选择职级{{/if}}){{/each}}</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="info-row">
+                            <div class="info-row-label">时间：</div>
+                            <div class="info-row-cont">
+                                <span class="date-icon"><input type="text" id="J_StartDate" name="sDate" placeholder="差旅起始日" value="" class="w140 fn-c-3571be" readonly></span>
+                                <span class="fn-c-666">-</span>
+                                <span class="date-icon"><input type="text" id="J_EndDate" name="eDate" placeholder="差旅结束日"  class="w140 fn-c-3571be" readonly></span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="info-content m-b20">
+            <div class="info-table-content">
+                <ul class="info-table info-table-row-bdr row-p-lr30">
+                    <li>
+                        <div class="info-row">
+                            <span class="info-row-label">出差<br>事由：</span><span class="info-row-cont">
+                            <textarea id="J_TravelReason" placeholder="最多输入140个字"></textarea></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="content-footer"><span class="btn-css" id="J_ButtonNext">下一步</span></div>
+    </section>
+</script>
+
+<!--出差人选项-->
+<script type="text/x-handlebars-template" id="J_TravelItemTpl">
+    <div class="info-content info-content-nobdr">
+        <h3 class="J_TravelItem">
+            <span class="info-row-cont" data-em="{{tripPersono}}" data-um="{{tripPersonUm}}" data-id="{{tripPersonId}}">{{tripPersonName}}({{tripPersonUm}})</span>
+            <span class="info-row-right change-sure-icon">
+                <figure class="J_CheckFigure {{#if checked}}sure-icon-en{{else}}sure-icon{{/if}}"></figure>
+            </span>
+        </h3>
+        <div class="info-table-content">
+            <ul class="info-table info-table-row-bdr row-p-lr30 J_TravelMts">
+                {{#if mts}}
+                    <li>
+                        <div class="info-row J_ReadedMts" data-value="{{mts}}">
+                            <span class="info-row-cont arrow-right-icon fn-c-3571be J_ReadedMtsText">{{mts}}</span>
+                        </div>
+                    </li>
+                {{else}}
+                    <li>
+                        <div class="info-row J_ReadedMts" data-value="{{mts}}">
+                            <span class="info-row-cont arrow-right-icon fn-c-3571be J_ReadedMtsText">选择职级</span>
+                        </div>
+                    </li>
+                {{/if}}
+            </ul>
+        </div>
+    </div>
+</script>
+
+<!--再调一个接口获取可选职级结果，在when.done后面返回渲染-->
+<script type="text/x-handlebars-template" id="J_MtsTpl">
+    {{#each result}}
+    <li class="fn-hide J_MtsItem" data-value="{{this}}">
+        <div class="info-row">
+            <span class="info-row-cont fn-c-3571be">{{this}}</span>
+        </div>
+    </li>
+    {{/each}}
+</script>
+
+<!--选择出差人（展）-->
+<script type="text/x-handlebars-template" id="J_TravellerTpl">
+    <section id="J_SearchLayout" class="search-layout search-btn-no">
+        <div class="search-content">
+            <div class="search-content-ipt">
+                <input id="J_TravelInput" type="text" class="search-ipt" placeholder="张三丰/zhangsanfeng001" autocapitalize="off"/>
+                <div id="J_ClearTxt" class="ipt-clear-btn"><span></span></div>
+            </div>
+            <div class="search-content-btn" id="J_SearchCancel"><span class="btn-css btn-c-no">取消</span></div>
+        </div>
+    </section>
+    <section id="J_PrevResult"></section>
+    <section id="J_CommonResult">
+        <div class="info-content info-content-nobdr"><h2>常用出差人</h2></div>
+    </section>
+    <section id="J_SearchResult" class="fn-hide">
+    </section>
+</script>
+
+<!--选择收款人（展）-->
+<script type="text/x-handlebars-template" id="J_PayeeItemTpl">
+    {{#each this}}
+        <li>
+            <div class="info-row J_PayeeItem" data-emp-no="{{employeeNo}}" data-e-value="{{payeeENo}}" data-value="{{payeeUm}}">
+                <span class="info-row-cont">{{payeName}}({{payeeUm}})</span>
+            </div>
+        </li>
+    {{/each}}
+</script>
+
+<!--收款人页面（展）-->
+<script type="text/x-handlebars-template" id="J_PayeeTpl">
+    <section id="J_SearchLayout" class="search-layout search-btn-no">
+        <div class="search-content">
+            <div class="search-content-ipt">
+                <input id="J_SearchInput" type="text" class="search-ipt" placeholder="张三丰/zhangsanfeng001" autocapitalize="off"/>
+                <div id="J_ClearTxt" class="ipt-clear-btn"><span></span></div>
+            </div>
+            <div class="search-content-btn" id="J_SearchCancel"><span class="btn-css btn-c-no">取消</span></div>
+        </div>
+    </section>
+    <section id="content">
+        <div class="info-content m-b20">
+            <h2>常用收款人</h2>
+            <div class="info-table-content">
+                <ul id="J_PayeeCommonList" class="info-table info-table-row-bdr row-p-lr30"></ul>
+            </div>
+        </div>
+    </section>
+    <section id="J_SearchResult" class="fn-hide">
+        <div class="info-content m-b20">
+            <div class="info-table-content">
+                <ul id="J_PayeeSearchList" class="info-table info-table-row-bdr row-p-lr30"></ul>
+            </div>
+        </div>
+    </section>
+</script>
+
+<!--选择帐套公司（展）-->
+<script type="text/x-handlebars-template" id="J_BookItemTpl">
+    {{#each this}}
+        <li>
+            <div class="info-row J_BooksetItem">
+                <span class="info-row-cont" data-value="{{addressId}}">{{supplierName}},{{orgName}},{{vendorSiteCode}}</span>
+            </div>
+        </li>
+    {{/each}}
+</script>
+
+<!--帐套-->
+<script type="text/x-handlebars-template" id="J_BooksetSelectTpl">
+    <div class="info-content m-b20">
+        <div class="info-table-content">
+            <ul id="J_BookSetList" class="info-table info-table-row-bdr row-p-lr30">
+            </ul>
+        </div>
+    </div>
+</script>
+
+<!--部门选择项-->
+<script type="text/x-handlebars-template" id="J_DepItemTpl">
+    {{#each this}}
+        <li>
+            <div class="info-row J_DepItem">
+                <span class="info-row-cont" data-value="{{segment3}}">{{segment3Desc}}</span>
+            </div>
+        </li>
+    {{/each}}
+</script>
+
+<!--选择部门（展）-->
+<script type="text/x-handlebars-template" id="J_DepSelectTpl">
+    <section id="J_SearchLayout" class="search-layout search-btn-no">
+        <div class="search-content">
+            <div class="search-content-ipt">
+                <input id="J_DepInput" type="text" class="search-ipt" placeholder="用户体验部/123" autocapitalize="off"/>
+                <div id="J_ClearTxt" class="ipt-clear-btn"><span></span></div>
+            </div>
+            <div class="search-content-btn" id="J_SearchCancel"><span class="btn-css btn-c-no">取消</span></div>
+        </div>
+    </section>
+    <section id="content">
+        <div class="info-content m-b20">
+            <h2>常用部门</h2>
+            <div class="info-table-content">
+                <ul id="J_UsualDepList" class="info-table info-table-row-bdr row-p-lr30"></ul>
+            </div>
+        </div>
+    </section>
+    <section id="J_SearchResult" class="fn-hide">
+        <div class="info-content m-b20">
+            <div class="info-table-content">
+                <ul id="J_DepList" class="info-table info-table-row-bdr row-p-lr30"></ul>
+                <p id="J_LoadMore" class="J_LoadMore">+点击加载更多</p>
+            </div>
+        </div>
+    </section>
+    <!--<div class="layout-relative">-->
+        <!--<div class="letter-find">-->
+            <!--<div class="letter-find-bg hover"></div>-->
+            <!--<ul class="letter-find-list">-->
+                <!--<li class="dot">●</li>-->
+                <!--<li class="dot">●</li>-->
+                <!--<li class="dot">●</li>-->
+                <!--<li>A</li>-->
+                <!--<li>B</li>-->
+                <!--<li>C</li>-->
+                <!--<li>D</li>-->
+                <!--<li>E</li>-->
+                <!--<li>F</li>-->
+                <!--<li>G</li>-->
+                <!--<li>H</li>-->
+                <!--<li>I</li>-->
+                <!--<li>J</li>-->
+                <!--<li>K</li>-->
+                <!--<li>L</li>-->
+                <!--<li>M</li>-->
+                <!--<li>O</li>-->
+                <!--<li>P</li>-->
+                <!--<li>Q</li>-->
+                <!--<li>R</li>-->
+                <!--<li>S</li>-->
+                <!--<li>T</li>-->
+                <!--<li>U</li>-->
+                <!--<li>V</li>-->
+                <!--<li>W</li>-->
+                <!--<li>X</li>-->
+                <!--<li>Y</li>-->
+                <!--<li>Z</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+        <!--<div class="info-content">-->
+            <!--<h2>常用部门</h2>-->
+            <!--<div class="info-table-content">-->
+                <!--<ul id="J_UsualDepList" class="info-table info-table-row-bdr row-p-lr30">-->
+                <!--</ul>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="info-content">-->
+            <!--<h2>当选部门</h2>-->
+            <!--<div class="info-table-content">-->
+                <!--<ul id="J_DepList" class="info-table info-table-row-bdr row-p-lr30">-->
+                <!--</ul>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+</script>
